@@ -36,6 +36,7 @@ import send_icon from "./send-icon.png";
 import right_arrow_bold from "./right-arrow-bold.png";
 import right_arrow_bold_dark from "./right-arrow-bold-dark.png";
 
+
 export const assets = {
   user_image,
   code_icon,
@@ -74,6 +75,7 @@ export const assets = {
   send_icon,
   right_arrow_bold,
   right_arrow_bold_dark,
+  user-main,
 };
 
 export const workData = [
