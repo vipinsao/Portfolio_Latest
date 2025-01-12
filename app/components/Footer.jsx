@@ -1,14 +1,19 @@
 import React from "react";
 import Image from "next/image";
-import { assets } from "@/assets/assets";
+import { assets, siteLogo, siteLogoDark } from "@/assets/assets";
 const Footer = ({ isDarkMode }) => {
+  const siteLogoSrc = siteLogo[0].webLogo;
+  const siteLogoDarkSrc = siteLogoDark[0].webLogoDark;
+  const LogoImage = isDarkMode ? siteLogoSrc : siteLogoDarkSrc;
   return (
     <div className="mt-20">
       <div className="text-center">
         <Image
-          src={isDarkMode ? assets.logo_dark : assets.logo}
+          src={LogoImage}
           alt=""
           className="w-max mx-auto mb-2"
+          width={400}
+          height={120}
         />
         <div className="w-max flex items-center gap-2 mx-auto">
           <Image className="w-6" src={assets.mail_icon} alt="" />
@@ -19,17 +24,17 @@ const Footer = ({ isDarkMode }) => {
         <p>© 2025 Vipin Chandra Sao. All rights reserved.</p>
         <ul className="flex items-center gap-10 justify-center mt-4 sm:mt-0 ">
           <li>
-            <a target="_blank" href="#">
+            <a target="_blank" href="https://github.com/vipinsao">
               GitHub
             </a>
           </li>
           <li>
-            <a target="_blank" href="#">
+            <a target="_blank" href="linkedin.com/in/vipinsao">
               LinkedIn
             </a>
           </li>
           <li>
-            <a target="_blank" href="#">
+            <a target="_blank" href="https://x.com/vipinSao1">
               Twitter
             </a>
           </li>

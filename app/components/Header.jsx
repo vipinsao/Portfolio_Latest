@@ -1,9 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import { assets } from "@/assets/assets";
+import { assets, pic } from "@/assets/assets";
 import { motion } from "motion/react";
 
 const Header = () => {
+  const userVipinSrc = pic[0].userVipin;
   return (
     <div className="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4">
       <motion.div
@@ -11,7 +12,13 @@ const Header = () => {
         whileInView={{ scale: 1 }}
         transition={{ duration: 0.8, type: "spring", stifness: "100" }}
       >
-        <Image src={assets.user_image} alt="" className="rounded-full w-32" />
+        <Image
+          src={userVipinSrc}
+          alt=""
+          className="rounded-full w-32"
+          width={128}
+          height={128}
+        />
       </motion.div>
       <motion.h3
         initial={{ y: -20, opacity: 0 }}
@@ -36,11 +43,11 @@ const Header = () => {
         transition={{ duration: 0.6, delay: 0.7 }}
         className="max-w-3xl mx-auto font-Ovo"
       >
-        I am a full-stack web developer from Raipur, skilled in React.js,
-        Next.js, Node.js, MongoDB, and SQL. Driven by a passion for modern web
-        technologies, I create responsive, scalable solutions. Eager to apply my
-        skills and grow, I’m ready to contribute and deliver impactful results
-        for your company.
+        I am a passionate full-stack web developer from Raipur, dedicated to
+        creating responsive, scalable solutions that drive business success.
+        With a focus on impactful user experiences, I turn complex ideas into
+        innovative digital realities. Let’s build something exceptional
+        together!
       </motion.p>
       <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
         <motion.a

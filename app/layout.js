@@ -11,7 +11,7 @@ const ovo = Ovo({
   weight: ["400"],
 });
 export const metadata = {
-  title: "Portfolio",
+  title: "Vipin Sao",
   description: "Showing Personalised Skill",
 };
 

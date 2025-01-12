@@ -1,8 +1,9 @@
-import { assets, infoList, toolsData } from "@/assets/assets";
+import { assets, infoList, toolsData, pic } from "@/assets/assets";
 import Image from "next/image";
 import React from "react";
 import { motion } from "motion/react";
 const About = (isDarkMode) => {
+  const userVipinSrc = pic[0].userVipin;
   return (
     <motion.div
       id="about"
@@ -41,9 +42,11 @@ const About = (isDarkMode) => {
           className="w-64 sm:2-80 rounded-3xl max-w-none"
         >
           <Image
-            src={assets.user_image}
-            alt=""
+            src={userVipinSrc}
+            alt="user vipin"
             className="w-full rounded-3xl"
+            width={320}
+            height={290}
           />
         </motion.div>
         <motion.div

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { assets } from "@/assets/assets";
+import { assets, siteLogo, siteLogoDark } from "@/assets/assets";
 import { useRef } from "react";
 const Navbar = ({ isDarkMode, setIsDarkMode }) => {
+  const siteLogoSrc = siteLogo[0].webLogo;
+  const siteLogoDarkSrc = siteLogoDark[0].webLogoDark;
   const [isScroll, setIsScroll] = useState(false);
 
   const sideMenuRef = useRef();
@@ -37,10 +39,12 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
       >
         <a href="#top">
           <Image
-            src={isDarkMode ? assets.logo_dark : assets.logo}
+            src={isDarkMode ? siteLogoDarkSrc : siteLogoSrc}
             className="w-28 cursor-pointer"
             style={{ marginRight: "3.5rem" }}
             alt=""
+            width={112}
+            height={12}
           />
         </a>
         <ul
@@ -60,11 +64,7 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
               About me
             </a>
           </li>
-          <li>
-            <a className="font-Ovo" href="#services">
-              Services
-            </a>
-          </li>
+
           <li>
             <a className="font-Ovo" href="#work">
               My Work
