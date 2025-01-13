@@ -175,11 +175,9 @@ export const infoList = [
 ];
 
 export const toolsData = [
-  assets.vscode,
   assets.javaScript,
   assets.react,
   assets.nextJs,
-  assets.nodeJs,
   assets.mongodb,
   assets.git,
 ];

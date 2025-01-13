@@ -15,9 +15,9 @@ const Header = () => {
         <Image
           src={userVipinSrc}
           alt=""
-          className="rounded-full w-32"
-          width={128}
-          height={128}
+          className="rounded-full w-28"
+          width={112}
+          height={112}
         />
       </motion.div>
       <motion.h3
