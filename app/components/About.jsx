@@ -1,9 +1,30 @@
 import { assets, infoList, toolsData, pic } from "@/assets/assets";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "motion/react";
 const About = (isDarkMode) => {
   const userVipinSrc = pic[0].userVipin;
+
+  const [isLargeScreen, isSetLargeScreen] = useState(false);
+
+  useEffect(() => {
+    const handleSize = () => {
+      isSetLargeScreen(window.innerWidth >= 1024);
+    };
+
+    //when our page loads
+    handleSize(); //for checking purpose calling the handleSize function
+
+    //added resize event handler
+    window.addEventListener("resize", handleSize);
+
+    //when ever we are shifting or changing the section or page then we will dispose this
+    //so that memory leak not happened
+    return () => {
+      window.removeEventListener("resize", handleSize);
+    };
+  }, []);
+
   return (
     <motion.div
       id="about"
@@ -35,20 +56,23 @@ const About = (isDarkMode) => {
         transition={{ duration: 0.8 }}
         className="flex w-full flexcol lg:flex-row items-center gap-20 my-20"
       >
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          className="w-64 sm:2-80 rounded-3xl max-w-none"
-        >
-          <Image
-            src={userVipinSrc}
-            alt="user vipin"
-            className="w-full rounded-3xl"
-            width={320}
-            height={290}
-          />
-        </motion.div>
+        {isLargeScreen && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            className="w-64 sm:2-80 rounded-3xl max-w-none"
+          >
+            <Image
+              src={userVipinSrc}
+              alt="user vipin"
+              className="w-full rounded-3xl"
+              width={320}
+              height={290}
+            />
+          </motion.div>
+        )}
+
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

@@ -178,5 +178,7 @@ export const toolsData = [
   assets.javaScript,
   assets.react,
   assets.nextJs,
+  assets.nodeJs,
+  assets.mongodb,
   assets.git,
 ];
