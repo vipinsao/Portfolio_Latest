@@ -105,21 +105,25 @@ export const workData = [
     title: "Saas web using AI",
     description: "WebApp",
     bgImage: "/work-1.png",
+    link: "https://github.com/vipinsao/AI-Saas-Webapp",
   },
   {
     title: "Auth-Web",
     description: "WebApp",
     bgImage: "/work-2.png",
+    link: "https://github.com/vipinsao/Full-Stack-Auth-Web-NextJs",
   },
   {
     title: "Portfolio Site",
     description: "WebPage",
     bgImage: "/work-3.png",
+    link: "https://github.com/vipinsao/Portfolio_Latest?tab=readme-ov-file",
   },
   {
     title: "JobSearch Webpage",
     description: "WebApp",
     bgImage: "/work-4.png",
+    link: "https://github.com/vipinsao/JobSearch_ver2",
   },
 ];
 
