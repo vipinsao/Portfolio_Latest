@@ -80,11 +80,13 @@ const About = (isDarkMode) => {
           className="flex-l"
         >
           <p className="mb-10 max-w-2xl font-Ovo">
-            Hi, I’m a passionate full-stack web developer skilled in JavaScript,
-            React.js, Next.js, Node.js, MongoDB, SQL, and AI integration. I
-            craft responsive, scalable web applications, blending creativity and
-            logic to deliver impactful solutions. Let’s build something
-            extraordinary!
+            I’m a full-stack web developer skilled in JavaScript, React.js,
+            Next.js, Node.js, MongoDB, and SQL. I build responsive, secure, and
+            scalable web apps—like an AI-powered recruiter platform that reduced
+            hiring time by 40%, and a typing trainer that boosted user retention
+            by 35%. I bring real-world experience, performance-focused
+            development, and a passion for creating solutions that deliver
+            measurable impact.
           </p>
           <motion.ul
             initial={{ opacity: 0 }}
@@ -124,7 +126,7 @@ const About = (isDarkMode) => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 1.5, duration: 0.6 }}
-            className="flex items-center gap-3 sm:gap-5"
+            className="grid grid-cols-4 sm:flex sm:flex-wrap gap-4"
           >
             {toolsData.map((tool, index) => (
               <motion.li

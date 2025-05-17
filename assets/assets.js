@@ -39,9 +39,11 @@ import nextJs from "./nextJs.png";
 import javaScript from "./javascript.png";
 import react from "./react.png";
 import nodeJs from "./nodeJs.png";
+import chatgpt from "./chatgpt.png";
 
 export const assets = {
   // user_image,
+  chatgpt,
   code_icon,
   code_icon_dark,
   edu_icon,
@@ -102,28 +104,34 @@ export const siteLogoDark = [
 
 export const workData = [
   {
-    title: "Saas web using AI",
-    description: "WebApp",
-    bgImage: "/work-1.png",
+    title: "AI Recruiter",
+    description: "Created using Next.js,Supabase,Vapi Ai",
+    bgImage: "/AiRecruiter.png",
+    link: "https://ai-interview-agent-gules.vercel.app/",
+  },
+  {
+    title: "TypingWeb",
+    description: "Created using Next.js,Firebase,Typescript",
+    bgImage: "/TypingWeb.png",
+    link: "https://vercel.com/vipinsaos-projects/typingweb",
+  },
+  {
+    title: "AI Saas Webapp",
+    description: "Created using Next.js,CloudinaryAI",
+    bgImage: "/AiSaasWebapp.png",
     link: "https://github.com/vipinsao/AI-Saas-Webapp",
   },
   {
-    title: "Auth-Web",
-    description: "WebApp",
-    bgImage: "/work-2.png",
+    title: "Auth Web",
+    description: "Created using Next.js,NextAuth,MongoDB",
+    bgImage: "/auth.png",
     link: "https://github.com/vipinsao/Full-Stack-Auth-Web-NextJs",
   },
   {
-    title: "Portfolio Site",
-    description: "WebPage",
-    bgImage: "/work-3.png",
-    link: "https://github.com/vipinsao/Portfolio_Latest?tab=readme-ov-file",
-  },
-  {
-    title: "JobSearch Webpage",
-    description: "WebApp",
-    bgImage: "/work-4.png",
-    link: "https://github.com/vipinsao/JobSearch_ver2",
+    title: "OpenMind AI Agent",
+    description: "Created uisng Gemini AI,Next.js",
+    bgImage: "/Openmind.png",
+    link: "https://openmind-ai-agent.vercel.app/",
   },
 ];
 
@@ -162,19 +170,19 @@ export const infoList = [
     iconDark: assets.code_icon_dark,
     title: "Tech Stack",
     description:
-      "HTML, CSS, JavaScript React Js, Next Js,Node Js,Express JS,SQL,MongoDB",
+      "HTML5, Taildwind CSS, ShadCn, JavaScript, TypeScript, React Js, Next Js, Node Js, Express JS, SQL, MongoDB",
   },
   {
     icon: assets.edu_icon,
     iconDark: assets.edu_icon_dark,
     title: "Education",
-    description: "B.Tech in Computer Science",
+    description: "B.Tech in Computer Science & Engineering",
   },
   {
     icon: assets.project_icon,
     iconDark: assets.project_icon_dark,
     title: "Projects",
-    description: "Built more than 4 projects",
+    description: "Built more than 5 projects",
   },
 ];
 
@@ -182,6 +190,9 @@ export const toolsData = [
   assets.javaScript,
   assets.react,
   assets.nextJs,
+  assets.nodeJs,
   assets.mongodb,
+  assets.firebase,
   assets.git,
+  assets.chatgpt,
 ];

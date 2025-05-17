@@ -43,11 +43,9 @@ const Header = () => {
         transition={{ duration: 0.6, delay: 0.7 }}
         className="max-w-3xl mx-auto font-Ovo"
       >
-        I am a passionate full-stack web developer from Raipur, dedicated to
-        creating responsive, scalable solutions that drive business success.
-        With a focus on impactful user experiences, I turn complex ideas into
-        innovative digital realities. Let’s build something exceptional
-        together!
+        Full-stack web developer from Raipur, skilled in building responsive and
+        scalable web apps. I’m looking for opportunities to solve real-world
+        problems through clean, user-focused solutions.
       </motion.p>
       <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
         <motion.a
