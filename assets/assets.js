@@ -113,7 +113,7 @@ export const workData = [
     title: "TypingWeb",
     description: "Created using Next.js,Firebase,Typescript",
     bgImage: "/TypingWeb.png",
-    link: "https://vercel.com/vipinsaos-projects/typingweb",
+    link: "https://typingweb-two.vercel.app/",
   },
   {
     title: "AI Saas Webapp",
