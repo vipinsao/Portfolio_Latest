@@ -86,6 +86,12 @@ export const assets = {
   nodeJs,
 };
 
+export const userImg = [
+  {
+    userImage: "/user.jpg",
+  },
+];
+
 export const pic = [
   {
     userVipin: "/user-vipin.png",

@@ -1,9 +1,10 @@
-import { assets, infoList, toolsData, pic } from "@/assets/assets";
+import { assets, infoList, toolsData, userImg } from "@/assets/assets";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { motion } from "motion/react";
 const About = (isDarkMode) => {
-  const userVipinSrc = pic[0].userVipin;
+  // const userVipinSrc = pic[0].userVipin;
+  const user = userImg[0].userImage;
 
   const [isLargeScreen, isSetLargeScreen] = useState(false);
 
@@ -64,11 +65,11 @@ const About = (isDarkMode) => {
             className="w-64 sm:2-80 rounded-3xl max-w-none"
           >
             <Image
-              src={userVipinSrc}
+              src={user}
               alt="user vipin"
               className="w-full rounded-3xl"
               width={320}
-              height={290}
+              height={490}
             />
           </motion.div>
         )}

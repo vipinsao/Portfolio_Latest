@@ -17,7 +17,7 @@ const Footer = ({ isDarkMode }) => {
         />
         <div className="w-max flex items-center gap-2 mx-auto">
           <Image className="w-6" src={assets.mail_icon} alt="" />
-          vipinsao3@gmail.com
+          vipinc.sao@gmail.com
         </div>
       </div>
       <div className="text-center sm:flex items-center justify-between border-t border-gray-400 mx-[10%] mt-12 py-6">
@@ -29,7 +29,7 @@ const Footer = ({ isDarkMode }) => {
             </a>
           </li>
           <li>
-            <a target="_blank" href="linkedin.com/in/vipinsao">
+            <a target="_blank" href="https://linkedin.com/in/vipinsao">
               LinkedIn
             </a>
           </li>

@@ -25,6 +25,20 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
       }
     });
   }, []);
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const dropdownRef = useRef();
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
   return (
     <>
       <div className="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] dark:hidden">
@@ -69,6 +83,36 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
             <a className="font-Ovo" href="#work">
               My Work
             </a>
+          </li>
+          <li>
+            <a className="font-Ovo" href="https://github.com/vipinsao">
+              GitHub
+            </a>
+          </li>
+          <li className="relative" ref={dropdownRef}>
+            <button className="font-Ovo" onClick={() => setIsOpen(!isOpen)}>
+              DSA Profiles
+            </button>
+            {isOpen && (
+              <ul className="absolute left-0 mt-2 w-40 bg-white text-black shadow-lg rounded-lg z-10">
+                <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
+                  <a href="https://leetcode.com/u/vipinsao/">LeetCode</a>
+                </li>
+                <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
+                  <a href="https://www.geeksforgeeks.org/user/vipinsao/">GFG</a>
+                </li>
+                <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
+                  <a href="https://www.hackerrank.com/profile/vipin_sao">
+                    Hackerrank
+                  </a>
+                </li>
+                <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
+                  <a href="https://www.naukri.com/code360/profile/Vipin_2001">
+                    Code 360
+                  </a>
+                </li>
+              </ul>
+            )}
           </li>
           <li>
             <a className="font-Ovo" href="#contact">
