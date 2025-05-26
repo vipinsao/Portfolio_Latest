@@ -172,14 +172,39 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
             </a>
           </li>
           <li>
-            <a className="font-Ovo" href="#services" onClick={closeMenu}>
-              Services
-            </a>
-          </li>
-          <li>
             <a className="font-Ovo" href="#work" onClick={closeMenu}>
               My Work
             </a>
+          </li>
+          <li>
+            <a className="font-Ovo" href="https://github.com/vipinsao">
+              GitHub
+            </a>
+          </li>
+          <li className="relative" ref={dropdownRef}>
+            <button className="font-Ovo" onClick={() => setIsOpen(!isOpen)}>
+              DSA Profiles
+            </button>
+            {isOpen && (
+              <ul className="absolute left-0 mt-2 w-40 bg-white text-black shadow-lg rounded-lg z-10">
+                <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
+                  <a href="https://leetcode.com/u/vipinsao/">LeetCode</a>
+                </li>
+                <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
+                  <a href="https://www.geeksforgeeks.org/user/vipinsao/">GFG</a>
+                </li>
+                <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
+                  <a href="https://www.hackerrank.com/profile/vipin_sao">
+                    Hackerrank
+                  </a>
+                </li>
+                <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
+                  <a href="https://www.naukri.com/code360/profile/Vipin_2001">
+                    Code 360
+                  </a>
+                </li>
+              </ul>
+            )}
           </li>
           <li>
             <a className="font-Ovo" href="#contact" onClick={closeMenu}>

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { assets, pic } from "@/assets/assets";
 import { motion } from "motion/react";
 
-const Header = () => {
+const Header = ({ isDarkMode }) => {
   const userVipinSrc = pic[0].userVipin;
   return (
     <div className="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4">
@@ -67,15 +67,15 @@ const Header = () => {
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.2 }}
-          href="/vipin.pdf"
-          download
+          href="https://drive.google.com/file/d/1L8cDfKg9xJe1gq05RKKFBOZ997IMui_L/view?usp=sharing"
+          target="_blank"
           className="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black"
         >
           My resume
           <Image
-            src={assets.download_icon}
+            src={isDarkMode ? assets.arrow_icon : assets.arrow_icon}
+            className="w-3"
             alt=""
-            className="rounded-full w-4"
           />
         </motion.a>
       </div>
