@@ -81,13 +81,13 @@ const About = (isDarkMode) => {
           className="flex-l"
         >
           <p className="mb-10 max-w-2xl font-Ovo">
-            I’m a full-stack web developer skilled in JavaScript, React.js,
-            Next.js, Node.js, MongoDB, and SQL. I build responsive, secure, and
-            scalable web apps—like an AI-powered recruiter platform that reduced
-            hiring time by 40%, and a typing trainer that boosted user retention
-            by 35%. I bring real-world experience, performance-focused
-            development, and a passion for creating solutions that deliver
-            measurable impact.
+            Full Stack Developer skilled in building modern, scalable web
+            applications using React, Next.js, TypeScript, and Node.js.
+            Experienced with AI integrations, OCR tools, and real-time systems.
+            Strong in C++ and data structures with 300+ problems solved on
+            LeetCode. Focused on clean architecture, performance optimization,
+            and delivering user-friendly solutions. Open to impactful
+            opportunities and continuous learning.
           </p>
           <motion.ul
             initial={{ opacity: 0 }}

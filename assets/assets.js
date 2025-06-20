@@ -110,6 +110,12 @@ export const siteLogoDark = [
 
 export const workData = [
   {
+    title: "AI Ingredient Analyzer",
+    description: "Created using React,Node.js,Tesseract.js",
+    bgImage: "/analyzer.png",
+    link: "https://smart-ingredient-analyzer.vercel.app/",
+  },
+  {
     title: "AI Recruiter",
     description: "Created using Next.js,Supabase,Vapi Ai",
     bgImage: "/AiRecruiter.png",
@@ -121,8 +127,9 @@ export const workData = [
     bgImage: "/TypingWeb.png",
     link: "https://typingweb-two.vercel.app/",
   },
+
   {
-    title: "AI Saas Webapp",
+    title: "Social Share",
     description: "Created using Next.js,CloudinaryAI",
     bgImage: "/AiSaasWebapp.png",
     link: "https://github.com/vipinsao/AI-Saas-Webapp",
