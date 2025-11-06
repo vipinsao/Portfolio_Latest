@@ -97,11 +97,13 @@ export const pic = [
     userVipin: "/user-vipin.png",
   },
 ];
+
 export const siteLogo = [
   {
     webLogo: "/logo.png",
   },
 ];
+
 export const siteLogoDark = [
   {
     webLogoDark: "/logo_dark.png",
@@ -110,69 +112,66 @@ export const siteLogoDark = [
 
 export const workData = [
   {
-    title: "AI Ingredient Analyzer",
-    description: "Created using React,Node.js,Tesseract.js",
+    title: "Smart Ingredient Analyzer",
+    description: "AI-powered food label scanner with health insights using Groq API & OCR",
     bgImage: "/analyzer.png",
     link: "https://smart-ingredient-analyzer.vercel.app/",
   },
   {
-    title: "AI Recruiter",
-    description: "Created using Next.js,Supabase,Vapi Ai",
+    title: "AI Interview Agent",
+    description: "Voice-based AI mock interviewer with real-time feedback using OpenAI & WebRTC",
     bgImage: "/AiRecruiter.png",
     link: "https://ai-interview-agent-gules.vercel.app/",
   },
   {
+    title: "OpenMind AI Agent",
+    description: "Mental wellness AI companion with mood tracking using Gemini AI",
+    bgImage: "/Openmind.png",
+    link: "https://openmind-ai-agent.vercel.app/",
+  },
+  {
     title: "TypingWeb",
-    description: "Created using Next.js,Firebase,Typescript",
+    description: "Gamified typing speed trainer with leaderboards using Firebase",
     bgImage: "/TypingWeb.png",
     link: "https://typingweb-two.vercel.app/",
   },
-
   {
     title: "Social Share",
-    description: "Created using Next.js,CloudinaryAI",
+    description: "AI-powered social media content generator using CloudinaryAI",
     bgImage: "/AiSaasWebapp.png",
     link: "https://github.com/vipinsao/AI-Saas-Webapp",
   },
   {
-    title: "Auth Web",
-    description: "Created using Next.js,NextAuth,MongoDB",
+    title: "Auth System",
+    description: "Enterprise authentication system with NextAuth & MongoDB",
     bgImage: "/auth.png",
     link: "https://github.com/vipinsao/Full-Stack-Auth-Web-NextJs",
-  },
-  {
-    title: "OpenMind AI Agent",
-    description: "Created uisng Gemini AI,Next.js",
-    bgImage: "/Openmind.png",
-    link: "https://openmind-ai-agent.vercel.app/",
   },
 ];
 
 export const serviceData = [
   {
     icon: assets.web_icon,
-    title: "WebApp",
-    description: "Web development is the process of building, programming...",
+    title: "Full Stack Development",
+    description: "Building modern, scalable web applications with React, Next.js, Node.js, and cloud technologies",
     link: "",
   },
   {
     icon: assets.mobile_icon,
-    title: "Mobile app",
-    description:
-      "Mobile app development involves creating software for mobile devices...",
+    title: "AI/ML Integration",
+    description: "Integrating GenAI APIs (OpenAI, Groq, Gemini) into production applications for real-world solutions",
     link: "",
   },
   {
     icon: assets.ui_icon,
-    title: "UI/UX design",
-    description:
-      "UI/UX design focuses on creating a seamless user experience...",
+    title: "Workflow Automation",
+    description: "Creating efficient n8n automation workflows to streamline processes and save time",
     link: "",
   },
   {
     icon: assets.graphics_icon,
-    title: "Graphics design",
-    description: "Creative design solutions to enhance visual communication...",
+    title: "Open Source",
+    description: "Contributing to open-source projects like Kestra and EXXETA with meaningful PRs",
     link: "",
   },
 ];
@@ -181,21 +180,22 @@ export const infoList = [
   {
     icon: assets.code_icon,
     iconDark: assets.code_icon_dark,
-    title: "Tech Stack",
+    title: "Languages & Frameworks",
     description:
-      "HTML5, Taildwind CSS, ShadCn, JavaScript, TypeScript, React Js, Next Js, Node Js, Express JS, SQL, MongoDB",
+      "JavaScript, TypeScript, React.js, Next.js, Node.js, Python, FastAPI, HTML5, CSS3, TailwindCSS, ShadCn UI",
   },
   {
     icon: assets.edu_icon,
     iconDark: assets.edu_icon_dark,
     title: "Education",
-    description: "B.Tech in Computer Science & Engineering",
+    description: "B.Tech in Computer Science & Engineering | Chhattisgarh Swami Vivekanand Technical University | Raipur, India | 2019-2023 | 8.32 CGPA",
   },
   {
     icon: assets.project_icon,
     iconDark: assets.project_icon_dark,
-    title: "Projects",
-    description: "Built more than 5 projects",
+    title: "Portfolio Highlights",
+    description:
+      "6+ Production Apps | 288 GitHub Contributions | 2 Merged Open Source PRs (Kestra, EXXETA) | 300+ LeetCode Problems | 99% Uptime",
   },
 ];
 
