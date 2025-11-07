@@ -171,7 +171,7 @@ export const projectsDetail = [
     tags: ["AI", "Voice", "WebRTC"],
   },
   {
-    id: 4,
+    id: 3,
     title: "TypingWeb - Speed Test Trainer",
     category: "fullstack",
     description:
@@ -197,5 +197,179 @@ export const projectsDetail = [
     githubLink: "https://github.com/vipinsao/typingweb",
     image: "/images/typing.jpg",
     tags: ["Productivity", "Gamification", "Firebase"],
+  },
+  {
+    id: 4,
+    title: "Social Share Optimizer",
+    category: "fullstack",
+    description:
+      "A utility web app that prepares media assets (videos + images) into platform-ready formats for faster social media publishing.",
+    problem:
+      "Every social platform uses different dimension standards and compression rules. Manually converting media every time is slow and inconsistent.",
+    solution:
+      "Upload once → select platform preset → download optimized output. Helps creators get platform-specific media export faster without manually resizing in editors.",
+    myApproach:
+      "Used Cloudinary’s transformation pipeline for resizing and compression presets, and built a simple guided export UI where user selects platform target before sharing.",
+    challenges: [
+      "Balancing quality vs file size",
+      "Mapping standard aspect ratios of platforms",
+      "Handling both video + image formats consistently",
+    ],
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Cloudinary"],
+    features: [
+      "Platform preset selection",
+      "Video compression export",
+      "Image ratio auto adjustment",
+    ],
+    results:
+      "Improved my understanding of media pipelines and cross-platform formatting standards.",
+    lessonsLearned:
+      "A simplified preset-driven UX reduces friction more than trying to automate publishing completely.",
+    liveLink: "https://github.com/vipinsao/AI-Saas-Webapp",
+    githubLink: "https://github.com/vipinsao/AI-Saas-Webapp",
+    image: "/images/social-share.jpg",
+    stars: 0,
+    forks: 0,
+    tags: ["Media", "Optimization", "Cloud"],
+  },
+  {
+    id: 5,
+    title: "Auth Web",
+    category: "fullstack",
+    description:
+      "A reusable authentication boilerplate to quickly bootstrap full-stack applications with secure auth.",
+    problem:
+      "Auth is usually the hardest part to standardize across new projects and consumes unnecessary setup time.",
+    solution:
+      "This repo provides a modular production-ready auth base with role-based logic that can be reused in projects.",
+    myApproach:
+      "Implemented NextAuth with MongoDB, structured access layers cleanly, and focused on SSR safe session handling.",
+    challenges: [
+      "Session management across page reloads",
+      "Refresh token lifecycle handling",
+      "Role based route gating",
+    ],
+    techStack: ["Next.js", "NextAuth", "MongoDB", "Tailwind CSS"],
+    features: [
+      "Protected routes",
+      "Role-based access control",
+      "Reusable auth architecture",
+    ],
+    results:
+      "This starter now reduces my setup time significantly when creating new prototypes.",
+    lessonsLearned:
+      "Good base auth architecture compounds long-term productivity.",
+    liveLink: "https://github.com/vipinsao/Full-Stack-Auth-Web-NextJs",
+    githubLink: "https://github.com/vipinsao/Full-Stack-Auth-Web-NextJs",
+    image: "/images/auth-web.jpg",
+    stars: 0,
+    forks: 0,
+    tags: ["Auth", "RBAC", "Full Stack"],
+  },
+];
+
+export const workflows = [
+  {
+    id: 1,
+    title: "Twitter AI Post Generator",
+    category: "workflow",
+    description:
+      "An n8n-based workflow that generates tweet content ideas using AI and formats them before publishing.",
+    problem:
+      "Writing tweet variations manually every day reduces consistency and wastes context switching time.",
+    solution:
+      "Automated content drafting using AI + topic feeds with optional manual review before sharing.",
+    myApproach:
+      "Used RSS feeds to track trending developer content, generated multiple variations using AI, and prepared drafts for faster publishing.",
+    techStack: ["n8n", "OpenAI API", "RSS", "Cron Jobs"],
+    features: [
+      "AI-based tweet draft generation",
+      "Topic based RSS inspiration feed",
+      "Draft queue preparation for manual posting",
+    ],
+    results:
+      "Helped me experiment with repeatable idea generation without constantly context-switching.",
+    lessonsLearned: "AI works best as a draft co-writer — not an auto poster.",
+    image: "/images/twitter-workflow.jpg",
+    link: "https://github.com/vipinsao",
+    tags: ["Automation", "n8n", "AI", "Social"],
+  },
+  {
+    id: 2,
+    title: "LinkedIn Job Search Automation",
+    category: "workflow",
+    description:
+      "Automated system deployed on VPS that monitors LinkedIn job listings and alerts me when new matching opportunities appear.",
+    problem:
+      "Checking LinkedIn multiple times daily is inefficient and leads to missing fresh postings.",
+    solution:
+      "This workflow continuously fetches job listings, filters by my conditions (remote + AI + fullstack), and notifies me instantly.",
+    myApproach:
+      "Used n8n HTTP job listing extract + custom JS filters + dual channel notifications via email and Telegram.",
+    techStack: [
+      "n8n",
+      "LinkedIn API",
+      "JavaScript",
+      "Email",
+      "Telegram Bot",
+      "Cron Jobs",
+    ],
+    features: [
+      "Scheduled periodic job checks",
+      "Custom filtering by tech + remote",
+      "Instant alerts through Telegram & Email",
+    ],
+    results:
+      "This workflow runs on my Hostinger VPS and continuously monitors for relevant roles, saving daily manual browsing time.",
+    lessonsLearned:
+      "Automating job discovery gives more time to focus on skill development instead of repeating search loops.",
+    image: "/images/linkedin-workflow.jpg",
+    link: "https://github.com/vipinsao",
+    tags: ["Automation", "n8n", "Jobs", "Productivity"],
+  },
+];
+
+export const blogs = [
+  {
+    id: 1,
+    title: "JavaScript vs TypeScript: When Should You Make the Switch?",
+    platform: "Dev.to",
+    date: "October 2024",
+    readTime: "8 min read",
+    description:
+      "Exploring the practical differences between JavaScript and TypeScript, when to use each, and migration strategies for existing projects.",
+    summary:
+      "The blog explains when TypeScript reduces complexity vs when JavaScript is faster to iterate with.",
+    link: "https://dev.to/vipin_sao",
+    tags: ["JavaScript", "TypeScript", "Web Development"],
+    views: "500+",
+  },
+  {
+    id: 2,
+    title: "Building Production-Ready Full Stack Apps: Best Practices",
+    platform: "Medium",
+    date: "September 2024",
+    readTime: "12 min read",
+    description:
+      "A comprehensive guide covering architecture, security, deployment, and monitoring for professional full-stack applications.",
+    summary:
+      "The blog explains when TypeScript reduces complexity vs when JavaScript is faster to iterate with.",
+    link: "https://medium.com/@vipinsao3",
+    tags: ["Full Stack", "Best Practices", "Production"],
+    views: "300+",
+  },
+  {
+    id: 3,
+    title: "Integrating GenAI into Web Apps: Beyond the Wrapper",
+    platform: "Medium",
+    date: "August 2024",
+    readTime: "10 min read",
+    description:
+      "How to thoughtfully integrate GenAI into applications—focusing on real value, not just API wrappers. Includes practical examples.",
+    summary:
+      "The blog explains when TypeScript reduces complexity vs when JavaScript is faster to iterate with.",
+    link: "https://medium.com/@vipinsao3",
+    tags: ["GenAI", "AI Integration", "Web Development"],
+    views: "400+",
   },
 ];

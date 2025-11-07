@@ -1,27 +1,24 @@
-import { Outfit, Ovo } from "next/font/google";
+"use client";
 import "./globals.css";
 
-const outfit = Outfit({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const ovo = Ovo({
-  subsets: ["latin"],
-  weight: ["400"],
-});
-export const metadata = {
-  title: "Vipin Sao",
-  description: "Showing Personalised Skill",
-};
+import { ModalProvider } from "./context/ModalContext";
+import ModalComponent from "./components/ModalComponent";
+import { ThemeProvider } from "next-themes";
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth dark">
-      <body
-        className={`${outfit.className} ${ovo.className} antialiased leading-8 overflow-x-hidden dark:bg-darkTheme dark:text-white `}
-      >
-        {children}
+    <html lang="en">
+      <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+        ></ThemeProvider>
+        <ModalProvider>
+          {children}
+          <ModalComponent />
+        </ModalProvider>
+        <ThemeProvider />
       </body>
     </html>
   );

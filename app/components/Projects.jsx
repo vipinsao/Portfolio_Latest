@@ -1,8 +1,11 @@
 "use client";
 import Image from "next/image";
 import { projectsDetail } from "../data/portfolio";
+import { useModal } from "../context/ModalContext";
 
 export default function Projects() {
+  const { openModal } = useModal();
+
   return (
     <section id="projects" className="w-full py-28 bg-white border-t">
       <div className="max-w-6xl mx-auto w-full px-6">
@@ -12,9 +15,10 @@ export default function Projects() {
 
         <div className="grid md:grid-cols-3 gap-10">
           {projectsDetail.map((project) => (
-            <div
+            <button
               key={project.id}
-              className="border rounded-xl p-5 hover:shadow-xl transition bg-white"
+              onClick={() => openModal("project", project)}
+              className="text-left border rounded-xl p-5 hover:shadow-xl transition bg-white"
             >
               <div className="relative w-full h-48 rounded-lg overflow-hidden border">
                 <Image
@@ -33,22 +37,28 @@ export default function Projects() {
               </p>
 
               <div className="flex gap-4 mt-4">
+                <span className="px-3 py-1 text-xs border rounded-md">
+                  Open
+                </span>
+                {/* Optional: keep direct links too */}
                 <a
                   href={project.liveLink}
                   target="_blank"
-                  className="px-4 py-2 rounded-md bg-black text-white text-sm font-medium hover:bg-gray-800 transition"
+                  onClick={(e) => e.stopPropagation()}
+                  className="px-3 py-1 text-xs border rounded-md"
                 >
                   Live
                 </a>
                 <a
                   href={project.githubLink}
                   target="_blank"
-                  className="px-4 py-2 rounded-md border border-gray-900 text-gray-900 text-sm font-medium hover:bg-gray-100 transition"
+                  onClick={(e) => e.stopPropagation()}
+                  className="px-3 py-1 text-xs border rounded-md"
                 >
                   Code
                 </a>
               </div>
-            </div>
+            </button>
           ))}
         </div>
       </div>
