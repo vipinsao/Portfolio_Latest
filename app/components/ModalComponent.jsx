@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import React, { useEffect, useRef } from "react";
 import { useModal } from "../context/ModalContext";
 
 export default function ModalComponent() {
@@ -10,18 +11,20 @@ export default function ModalComponent() {
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
-      onMouseDown={(e) => {
+      onClick={(e) => {
         if (e.target === e.currentTarget) closeModal();
       }}
     >
       <div
         className="relative w-full max-w-xl md:max-w-2xl max-h-[85vh] bg-white dark:bg-neutral-950 rounded-2xl shadow-2xl border border-neutral-200 dark:border-neutral-800 overflow-hidden"
-        onMouseDown={(e) => e.stopPropagation()}
+        onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
-          onClick={closeModal}
-          className="absolute right-3 top-3 text-gray-700 dark:text-gray-200 text-xl font-bold"
+          onPointerDown={(e) => {
+            if (e.target === e.currentTarget) closeModal();
+          }}
+          className="absolute right-3 top-3 text-gray-700 dark:text-gray-200 text-xl font-bold hover:opacity-70"
         >
           ×
         </button>
@@ -67,14 +70,6 @@ export default function ModalComponent() {
                 <Section title="My Approach" content={data.myApproach} />
               )}
 
-              {data.challenges?.length > 0 && (
-                <ListSection title="Challenges" items={data.challenges} />
-              )}
-
-              {data.features?.length > 0 && (
-                <ListSection title="Features" items={data.features} />
-              )}
-
               {data.techStack?.length > 0 && (
                 <ListSection title="Tech Stack" items={data.techStack} small />
               )}
@@ -84,6 +79,10 @@ export default function ModalComponent() {
               )}
               {data.lessonsLearned && (
                 <Section title="Key Lesson" content={data.lessonsLearned} />
+              )}
+
+              {data.challenges?.length > 0 && (
+                <ListSection title="Challenges" items={data.challenges} />
               )}
             </>
           )}
@@ -100,6 +99,7 @@ export default function ModalComponent() {
               {data.summary && (
                 <Section title="Summary Insight" content={data.summary} />
               )}
+
               {data.tags && (
                 <ListSection title="Tags" items={data.tags} small />
               )}

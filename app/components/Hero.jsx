@@ -1,46 +1,58 @@
 "use client";
 import Image from "next/image";
-import { personalInfo } from "../data/portfolio";
 
 export default function Hero() {
   return (
-    <section className="w-full bg-white py-24 flex items-center">
-      <div className="max-w-6xl mx-auto w-full px-6 flex flex-col md:flex-row items-center justify-between gap-12">
-        {/* Text Left */}
-        <div className="flex flex-col gap-5 md:w-1/2">
-          <h1 className="text-4xl md:text-5xl font-semibold text-gray-900 leading-tight">
-            {personalInfo.name}
+    <section className="w-full pt-40 pb-28 bg-white dark:bg-neutral-950 border-b border-neutral-200 dark:border-neutral-800">
+      <div className="max-w-6xl mx-auto w-full px-6 flex flex-col md:flex-row items-center justify-between gap-14">
+        {/* TEXT */}
+        <div className="flex flex-col gap-6 md:w-1/2">
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight text-neutral-900 dark:text-neutral-100">
+            I build AI powered products that create real value for users and
+            teams.
           </h1>
-          <h2 className="text-xl md:text-2xl font-medium text-gray-700">
-            {personalInfo.title}
-          </h2>
-          <p className="text-gray-600 leading-relaxed">{personalInfo.bio}</p>
-          <div className="flex gap-4 mt-4">
-            <a
-              href={personalInfo.resumeUrl}
-              target="_blank"
-              className="px-5 py-2 rounded-md bg-black text-white font-medium hover:bg-gray-800 transition"
-            >
-              View Resume
-            </a>
+
+          <p className="text-neutral-600 dark:text-neutral-300 text-base leading-relaxed">
+            Full Stack Engineer specializing in GenAI, automation systems, and
+            scalable AI-first product development. I focus on building practical
+            AI features, automation workflows, and end-to-end full stack
+            execution that helps teams ship faster and improve user experience.
+            Currently working on AI + Automation tooling, n8n driven workflows,
+            and high-velocity product builds for real world use.
+          </p>
+
+          <p className="text-sm text-neutral-500 dark:text-neutral-400">
+            Open to remote roles (India / Global) — AI SaaS, YC Based,
+            Seed-stage startups preferred.
+          </p>
+
+          <div className="flex gap-4 mt-2">
             <a
               href="#projects"
-              className="px-5 py-2 rounded-md border border-gray-900 text-gray-900 font-medium hover:bg-gray-100 transition"
+              className="px-5 py-2.5 rounded-md bg-black text-white dark:bg-white dark:text-black font-medium hover:bg-neutral-800 dark:hover:bg-neutral-200 transition"
             >
               View Projects
+            </a>
+            <a
+              href="mailto:vipinc.sao@gmail.com"
+              className="px-5 py-2.5 rounded-md border border-neutral-800 dark:border-neutral-300 text-neutral-800 dark:text-neutral-200 font-medium hover:bg-neutral-100 dark:hover:bg-neutral-900 transition"
+            >
+              Contact Me
             </a>
           </div>
         </div>
 
-        {/* Right Image */}
+        {/* IMAGE */}
         <div className="md:w-1/2 flex justify-center">
-          <Image
-            src="/user-vipin.png"
-            alt="Vipin Chandra Sao"
-            width={370}
-            height={370}
-            className="rounded-xl object-cover shadow-lg border"
-          />
+          <div className="rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 shadow-xl">
+            <Image
+              src="/user-vipin.png"
+              alt="Vipin Chandra Sao"
+              width={360}
+              height={360}
+              className="object-cover"
+            />
+          </div>
         </div>
       </div>
     </section>
