@@ -26,14 +26,14 @@ const skills = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="w-full py-28 bg-white border-t">
+    <section id="skills" className="w-full py-28 bg-white dark:bg-neutral-950 border-t border-neutral-200 dark:border-neutral-800">
       <div className="max-w-6xl mx-auto w-full px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-semibold text-gray-900 mb-12"
+          className="text-3xl md:text-4xl font-semibold text-gray-900 dark:text-white mb-12"
         >
           Skills & Tech
         </motion.h2>
@@ -55,7 +55,7 @@ export default function Skills() {
                 height={48}
                 className="object-contain"
               />
-              <p className="text-sm font-medium text-gray-800">{skill.name}</p>
+              <p className="text-sm font-medium text-gray-800 dark:text-gray-200">{skill.name}</p>
             </motion.div>
           ))}
         </div>

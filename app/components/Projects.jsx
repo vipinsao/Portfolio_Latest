@@ -21,7 +21,7 @@ export default function Projects() {
             <button
               key={project.id}
               onClick={() => openModal("project", project)}
-              className="group w-full text-left rounded-2xl border border-gray-200 dark:border-gray-800 p-5 hover:shadow-xl hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-200 bg-white dark:bg-[#0e0e0e]"
+              className="group w-full text-left rounded-2xl border border-gray-200 dark:border-gray-800 p-5 hover:shadow-xl hover:border-gray-300 dark:hover:border-gray-700 hover:-translate-y-1 transition-all duration-300 bg-white dark:bg-[#0e0e0e]"
             >
               <div className="relative w-full h-52 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-5">
                 <Image

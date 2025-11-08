@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <section id="about" className="w-full py-28 bg-white border-t">
+    <section id="about" className="w-full py-28 bg-white dark:bg-neutral-950 border-t border-neutral-200 dark:border-neutral-800">
       <div className="max-w-6xl mx-auto w-full px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-semibold text-gray-900 mb-8"
+          className="text-3xl md:text-4xl font-semibold text-gray-900 dark:text-white mb-8"
         >
           About Me
         </motion.h2>
@@ -21,7 +21,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-gray-700 leading-relaxed text-base max-w-3xl"
+          className="text-gray-700 dark:text-gray-300 leading-relaxed text-base max-w-3xl"
         >
           {about.philosophy}
         </motion.p>
@@ -33,10 +33,10 @@ export default function About() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-lg font-semibold text-gray-900 mb-3">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
               Approach
             </h3>
-            <ul className="space-y-1 text-gray-700 text-sm">
+            <ul className="space-y-1 text-gray-700 dark:text-gray-300 text-sm">
               {about.approach.map((item, i) => (
                 <li key={i}>• {item}</li>
               ))}
@@ -49,10 +49,10 @@ export default function About() {
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-lg font-semibold text-gray-900 mb-3">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
               Current Focus
             </h3>
-            <ul className="space-y-1 text-gray-700 text-sm">
+            <ul className="space-y-1 text-gray-700 dark:text-gray-300 text-sm">
               {about.currentFocus.map((item, i) => (
                 <li key={i}>• {item}</li>
               ))}
@@ -65,10 +65,10 @@ export default function About() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-lg font-semibold text-gray-900 mb-3">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
               Fun Fact
             </h3>
-            <p className="text-gray-700 text-sm">{about.funFact}</p>
+            <p className="text-gray-700 dark:text-gray-300 text-sm">{about.funFact}</p>
           </motion.div>
         </div>
       </div>

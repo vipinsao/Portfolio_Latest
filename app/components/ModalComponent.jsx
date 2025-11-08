@@ -21,10 +21,8 @@ export default function ModalComponent() {
       >
         {/* Close Button */}
         <button
-          onPointerDown={(e) => {
-            if (e.target === e.currentTarget) closeModal();
-          }}
-          className="absolute right-3 top-3 text-gray-700 dark:text-gray-200 text-xl font-bold hover:opacity-70"
+          onClick={closeModal}
+          className="absolute right-3 top-3 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800 text-gray-700 dark:text-gray-200 text-2xl font-bold hover:bg-gray-200 dark:hover:bg-neutral-700 transition"
         >
           ×
         </button>
@@ -46,7 +44,7 @@ export default function ModalComponent() {
           <h2 className="text-2xl font-semibold mb-2">{data.title}</h2>
 
           {/* Category Tag */}
-          <div className="text-xs inline-flex px-3 py-1 border rounded-md mb-4">
+          <div className="text-xs inline-flex px-3 py-1 border border-neutral-300 dark:border-neutral-700 rounded-md mb-4 text-gray-700 dark:text-gray-300">
             {view.toUpperCase()}
           </div>
 
@@ -112,7 +110,7 @@ export default function ModalComponent() {
               <a
                 target="_blank"
                 href={data.liveLink}
-                className="px-4 py-2 border rounded-md text-sm"
+                className="px-4 py-2 border border-neutral-300 dark:border-neutral-700 rounded-md text-sm hover:bg-neutral-50 dark:hover:bg-neutral-900 transition"
               >
                 Live Demo
               </a>
@@ -121,7 +119,7 @@ export default function ModalComponent() {
               <a
                 target="_blank"
                 href={data.githubLink}
-                className="px-4 py-2 border rounded-md text-sm"
+                className="px-4 py-2 border border-neutral-300 dark:border-neutral-700 rounded-md text-sm hover:bg-neutral-50 dark:hover:bg-neutral-900 transition"
               >
                 Code Repo
               </a>
@@ -130,7 +128,7 @@ export default function ModalComponent() {
               <a
                 target="_blank"
                 href={data.link}
-                className="px-4 py-2 border rounded-md text-sm"
+                className="px-4 py-2 border border-neutral-300 dark:border-neutral-700 rounded-md text-sm hover:bg-neutral-50 dark:hover:bg-neutral-900 transition"
               >
                 Visit Link
               </a>
