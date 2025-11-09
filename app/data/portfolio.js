@@ -40,11 +40,11 @@ export const experience = [
   {
     id: 1,
     title: "Independent Full Stack Developer",
-    company: "Freelance",
+    company: "Self-Driven Projects & Open Source",
     location: "Remote",
     period: "2023 - Present",
     achievements: [
-      "Built 6+ production-grade full-stack applications with stable deployments",
+      "Built 4+ production-grade full-stack applications with stable deployments",
       "Integrated GenAI APIs across multiple real-world use cases",
       "Created automation workflows (n8n) reducing 7+ weekly manual hours",
       "Contributed PRs to Kestra & EXXETA Trufos",
@@ -54,14 +54,14 @@ export const experience = [
   {
     id: 2,
     title: "Research Intern",
-    company: "Humming Minds Tech",
-    location: "Remote",
+    company: "Humming Minds Tech Pvt Ltd",
+    location: "Raipur, India",
     period: "Sep 2024 - Oct 2024",
     achievements: [
-      "Explored AI/ML integration patterns for full-stack applications",
-      "Built prototype demos using GenAI APIs",
-      "Contributed to documentation & research deliverables",
-      "Presented insights on practical AI usage & feasibility",
+      "Analyzed and compared 5+ modern web frameworks and recommended an optimized tech stack for scalability & cost-efficiency (20% projected cost reduction)",
+      "Documented 8+ UI/UX improvement recommendations after reviewing existing product flows",
+      "Prepared research reports evaluating performance, developer experience, and long-term maintainability of selected tech stack",
+      "Actively participated in technical discussions and contributed insights in cross-functional team meetings",
     ],
   },
 ];
@@ -76,7 +76,7 @@ export const achievements = [
   },
   {
     title: "Production-Grade Full Stack Apps",
-    metric: "6+",
+    metric: "4+",
     description:
       "Shipped multiple deployed full-stack applications with reliability.",
   },
@@ -131,7 +131,7 @@ export const projectsDetail = [
     ],
     liveLink: "https://smart-ingredient-analyzer.vercel.app/",
     githubLink: "https://github.com/vipinsao/Smart-Ingredient-Analyzer",
-    image: "/images/smart-ingredient.jpg",
+    image: "/images/smart-ingredient.png",
     tags: ["AI", "Health Tech", "OCR"],
   },
   {
@@ -167,7 +167,7 @@ export const projectsDetail = [
     ],
     liveLink: "https://ai-interview-agent-gules.vercel.app/",
     githubLink: "https://github.com/vipinsao/ai-interview-agent",
-    image: "/images/ai-interview.jpg",
+    image: "/images/ai-interview.png",
     tags: ["AI", "Voice", "WebRTC"],
   },
   {
@@ -195,7 +195,7 @@ export const projectsDetail = [
     ],
     liveLink: "https://typingweb-two.vercel.app/",
     githubLink: "https://github.com/vipinsao/typingweb",
-    image: "/images/typing.jpg",
+    image: "/images/typing.png",
     tags: ["Productivity", "Gamification", "Firebase"],
   },
   {
@@ -227,105 +227,80 @@ export const projectsDetail = [
       "A simplified preset-driven UX reduces friction more than trying to automate publishing completely.",
     liveLink: "https://github.com/vipinsao/AI-Saas-Webapp",
     githubLink: "https://github.com/vipinsao/AI-Saas-Webapp",
-    image: "/images/social-share.jpg",
+    image: "/images/social-share.png",
     stars: 0,
     forks: 0,
     tags: ["Media", "Optimization", "Cloud"],
-  },
-  {
-    id: 5,
-    title: "Auth Web",
-    category: "fullstack",
-    description:
-      "A reusable authentication boilerplate to quickly bootstrap full-stack applications with secure auth.",
-    problem:
-      "Auth is usually the hardest part to standardize across new projects and consumes unnecessary setup time.",
-    solution:
-      "This repo provides a modular production-ready auth base with role-based logic that can be reused in projects.",
-    myApproach:
-      "Implemented NextAuth with MongoDB, structured access layers cleanly, and focused on SSR safe session handling.",
-    challenges: [
-      "Session management across page reloads",
-      "Refresh token lifecycle handling",
-      "Role based route gating",
-    ],
-    techStack: ["Next.js", "NextAuth", "MongoDB", "Tailwind CSS"],
-    features: [
-      "Protected routes",
-      "Role-based access control",
-      "Reusable auth architecture",
-    ],
-    results:
-      "This starter now reduces my setup time significantly when creating new prototypes.",
-    lessonsLearned:
-      "Good base auth architecture compounds long-term productivity.",
-    liveLink: "https://github.com/vipinsao/Full-Stack-Auth-Web-NextJs",
-    githubLink: "https://github.com/vipinsao/Full-Stack-Auth-Web-NextJs",
-    image: "/images/auth-web.jpg",
-    stars: 0,
-    forks: 0,
-    tags: ["Auth", "RBAC", "Full Stack"],
   },
 ];
 
 export const workflows = [
   {
     id: 1,
-    title: "Twitter AI Post Generator",
+    title: "Job Opportunity Multi-Channel AI Monitor",
     category: "workflow",
     description:
-      "An n8n-based workflow that generates tweet content ideas using AI and formats them before publishing.",
+      "An n8n-based automated workflow that collects the last 5 Gmail job-related mails, last 5 GitHub repo issues, and last 5 Twitter notifications and sends one summarized digest mail every evening at 7 PM.",
     problem:
-      "Writing tweet variations manually every day reduces consistency and wastes context switching time.",
+      "Manually checking different platforms daily for job related updates is time-consuming, inconsistent, and easy to miss important opportunities.",
     solution:
-      "Automated content drafting using AI + topic feeds with optional manual review before sharing.",
+      "Automated daily aggregation of multiple channel notifications (Gmail, GitHub, Twitter) combined with AI summarization and priority ranking before sending a single digest email.",
     myApproach:
-      "Used RSS feeds to track trending developer content, generated multiple variations using AI, and prepared drafts for faster publishing.",
-    techStack: ["n8n", "OpenAI API", "RSS", "Cron Jobs"],
+      "Connected Gmail + GitHub APIs inside n8n, retrieved the latest notifications, processed them using Gemini AI for summarization and priority classification, and scheduled the workflow to deliver structured digest email at 7 PM daily.",
+    techStack: [
+      "n8n",
+      "Google Gemini",
+      "Gmail API",
+      "GitHub API",
+      "Cron Schedule",
+    ],
     features: [
-      "AI-based tweet draft generation",
-      "Topic based RSS inspiration feed",
-      "Draft queue preparation for manual posting",
+      "Daily scheduled automated execution (7 PM)",
+      "Aggregates latest notifications from multiple sources",
+      "AI summarization + prioritization for fast actionable insights",
+      "One single email digest instead of checking platforms manually",
     ],
     results:
-      "Helped me experiment with repeatable idea generation without constantly context-switching.",
-    lessonsLearned: "AI works best as a draft co-writer — not an auto poster.",
-    image: "/images/twitter-workflow.jpg",
-    link: "https://github.com/vipinsao",
-    tags: ["Automation", "n8n", "AI", "Social"],
+      "Reduced daily checking overhead and increased ability to notice relevant opportunities faster with zero manual effort.",
+    lessonsLearned:
+      "Automation + AI summarization removes noise and keeps focus only on high value updates.",
+    image: "/images/workflow-1.png",
+    link: "https://n8n.srv1017948.hstgr.cloud/workflow/JZku95JG5wkI8h3L",
+    tags: ["Automation", "n8n", "AI", "Productivity", "Monitoring"],
   },
   {
     id: 2,
     title: "LinkedIn Job Search Automation",
     category: "workflow",
     description:
-      "Automated system deployed on VPS that monitors LinkedIn job listings and alerts me when new matching opportunities appear.",
+      "VPS-hosted n8n workflow that scrapes LinkedIn job pages, scores each posting against my resume keywords, and sends a Telegram alert with details when the relevance score exceeds 50.",
     problem:
-      "Checking LinkedIn multiple times daily is inefficient and leads to missing fresh postings.",
+      "Manually scanning LinkedIn leads to noise and missed roles that actually match my resume.",
     solution:
-      "This workflow continuously fetches job listings, filters by my conditions (remote + AI + fullstack), and notifies me instantly.",
+      "Automated scraping + keyword scoring to detect high-fit roles and push instant Telegram notifications with the job link, id, and description.",
     myApproach:
-      "Used n8n HTTP job listing extract + custom JS filters + dual channel notifications via email and Telegram.",
+      "Extracted keywords from my resume, fetched new LinkedIn job results, parsed HTML, computed a weighted relevance score, and if score > 50, sent a structured Telegram message. Added deduping and simple rate limits.",
     techStack: [
       "n8n",
-      "LinkedIn API",
       "JavaScript",
-      "Email",
-      "Telegram Bot",
+      "Cheerio (HTML parsing) / Puppeteer (optional for dynamic pages)",
+      "Telegram Bot API",
       "Cron Jobs",
+      "Hostinger VPS",
     ],
     features: [
-      "Scheduled periodic job checks",
-      "Custom filtering by tech + remote",
-      "Instant alerts through Telegram & Email",
+      "Resume keyword matcher with weighted scoring",
+      "Score thresholding (notify only if score > 50)",
+      "Telegram alerts including job link, job id, and short description",
+      "Deduping, basic rate limiting, and error retries",
     ],
     results:
-      "This workflow runs on my Hostinger VPS and continuously monitors for relevant roles, saving daily manual browsing time.",
+      "Delivers only high-fit roles directly to Telegram, cutting manual browsing time and reducing low-relevance openings.",
     lessonsLearned:
-      "Automating job discovery gives more time to focus on skill development instead of repeating search loops.",
-    image: "/images/linkedin-workflow.jpg",
+      "A simple weighted keyword score filters noise effectively; add headless browsing only when pages render dynamically.",
+    image: "/images/workflow-2.png",
     link: "https://github.com/vipinsao",
-    tags: ["Automation", "n8n", "Jobs", "Productivity"],
+    tags: ["Automation", "n8n", "Jobs", "Telegram", "Scraping"],
   },
 ];
 
@@ -346,30 +321,33 @@ export const blogs = [
   },
   {
     id: 2,
-    title: "Building Production-Ready Full Stack Apps: Best Practices",
+    title:
+      "My First AI Workflow: Building My Personal Automation Assistant with n8n",
     platform: "Medium",
-    date: "September 2024",
-    readTime: "12 min read",
-    description:
-      "A comprehensive guide covering architecture, security, deployment, and monitoring for professional full-stack applications.",
-    summary:
-      "The blog explains when TypeScript reduces complexity vs when JavaScript is faster to iterate with.",
-    link: "https://medium.com/@vipinsao3",
-    tags: ["Full Stack", "Best Practices", "Production"],
-    views: "300+",
-  },
-  {
-    id: 3,
-    title: "Integrating GenAI into Web Apps: Beyond the Wrapper",
-    platform: "Medium",
-    date: "August 2024",
+    date: "September 2025",
     readTime: "10 min read",
     description:
-      "How to thoughtfully integrate GenAI into applications—focusing on real value, not just API wrappers. Includes practical examples.",
+      "This article explains how I built my very first AI workflow using n8n to automate repetitive personal tasks and turn them into a self-running assistant.",
     summary:
-      "The blog explains when TypeScript reduces complexity vs when JavaScript is faster to iterate with.",
-    link: "https://medium.com/@vipinsao3",
-    tags: ["GenAI", "AI Integration", "Web Development"],
-    views: "400+",
+      "The blog walks through how simple triggers + smart automation + AI powered logic can replace daily manual actions and start acting like a personal productivity agent.",
+    link: "https://medium.com/@vipinsao3/my-first-ai-workflow-building-my-personal-automation-assistant-with-n8n-1d59e160ed65",
+    tags: ["Automation", "AI", "n8n", "Personal Productivity"],
+    views: "300+",
+  },
+
+  {
+    id: 3,
+    title:
+      "The Ultimate Job Application Automation: From Zero to Hero with AI-Powered Resume Matching",
+    platform: "Medium",
+    date: "October 2025",
+    readTime: "12 min read",
+    description:
+      "A deep breakdown of how I automated the job search pipeline using AI, automation workflows, and scoring logic that matches roles against resume keywords.",
+    summary:
+      "This blog explains how to use AI-based scoring + workflow automation to automatically identify high-fit job postings and reduce time wasted on irrelevant applications.",
+    link: "https://medium.com/@vipinsao3/the-ultimate-job-application-automation-from-zero-to-hero-with-ai-powered-resume-matching-3d7c999b7f49",
+    tags: ["Automation", "AI Agents", "Job Search", "Resume Intelligence"],
+    views: "300+",
   },
 ];

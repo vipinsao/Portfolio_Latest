@@ -8,22 +8,21 @@ export default function Hero() {
         {/* TEXT */}
         <div className="flex flex-col gap-6 md:w-1/2">
           <h1 className="text-4xl md:text-5xl font-bold leading-tight text-neutral-900 dark:text-neutral-100">
-            I build AI powered products that create real value for users and
-            teams.
+            I build AI-powered software that delivers measurable impact for
+            users and teams.
           </h1>
 
           <p className="text-neutral-600 dark:text-neutral-300 text-base leading-relaxed">
             Full Stack Engineer specializing in GenAI, automation systems, and
-            scalable AI-first product development. I focus on building practical
-            AI features, automation workflows, and end-to-end full stack
-            execution that helps teams ship faster and improve user experience.
-            Currently working on AI + Automation tooling, n8n driven workflows,
-            and high-velocity product builds for real world use.
+            scalable AI-first product development. I design and ship practical
+            AI features, automated workflows, and end-to-end full stack
+            solutions that accelerate product velocity and improve user
+            outcomes.
           </p>
 
           <p className="text-sm text-neutral-500 dark:text-neutral-400">
-            Open to remote roles (India / Global) — AI SaaS, YC Based,
-            Seed-stage startups preferred.
+            Open to remote roles (India / Global) — AI SaaS, Automation
+            Platforms, Seed to Series-A Startups.
           </p>
 
           <div className="flex gap-4 mt-2">
