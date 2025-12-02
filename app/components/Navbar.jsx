@@ -17,7 +17,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* LOGO / NAME */}
         <Link href="/" className="text-lg font-semibold tracking-tight">
-          Vipin Sao
+          Vipin Chandra Sao
         </Link>
 
         {/* DESKTOP NAV */}

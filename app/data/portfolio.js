@@ -6,7 +6,7 @@ export const personalInfo = {
   bio: "Full Stack Developer skilled in building AI-enabled, production-grade web applications. I combine strong engineering fundamentals with practical GenAI integration to deliver real value—not just wrappers. My current focus is creating fast, reliable, user-centric AI features in full-stack products. Open to remote opportunities with AI SaaS startups, YC-style builder teams, and innovative product companies.",
   location: "Raipur, India",
   email: "vipinc.sao@gmail.com",
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "/resume.pdf", // keep this, but make sure resume.pdf exists in /public
   social: {
     github: "https://github.com/vipinsao",
     linkedin: "https://www.linkedin.com/in/vipinsao",
@@ -71,30 +71,31 @@ export const achievements = [
     title: "Open Source Contributions",
     metric: "2 PRs",
     description:
-      "Merged PRs in Kestra and EXXETA improving real production tooling.",
+      "Merged PRs into Kestra and EXXETA Trufos, improving real production tooling. See GitHub profile for details.",
     link: "https://github.com/vipinsao",
   },
   {
     title: "Production-Grade Full Stack Apps",
     metric: "4+",
     description:
-      "Shipped multiple deployed full-stack applications with reliability.",
+      "Shipped multiple deployed full-stack applications with reliable, stable deployments.",
   },
   {
     title: "GenAI Integration",
     metric: "3+",
     description:
-      "Integrated real-world AI workflows using Groq, Gemini and OpenAI APIs.",
+      "Integrated real-world AI workflows using Groq, Gemini, and OpenAI APIs into full-stack products.",
   },
   {
     title: "LeetCode Consistency",
     metric: "300+",
-    description: "300+ problems solved with a 365-day streak.",
+    description: "300+ problems solved with a 365-day streak on LeetCode.",
   },
   {
     title: "GitHub Activity",
     metric: "288+",
-    description: "Active consistent engineering contribution history.",
+    description:
+      "288+ GitHub contributions (commits, PRs, issues) in a year, showing consistent engineering practice.",
   },
 ];
 
@@ -225,7 +226,8 @@ export const projectsDetail = [
       "Improved my understanding of media pipelines and cross-platform formatting standards.",
     lessonsLearned:
       "A simplified preset-driven UX reduces friction more than trying to automate publishing completely.",
-    liveLink: "https://github.com/vipinsao/AI-Saas-Webapp",
+    // Live should go to the deployed app, code to the repo
+    liveLink: "https://ai-saas-webapp.vercel.app/",
     githubLink: "https://github.com/vipinsao/AI-Saas-Webapp",
     image: "/images/social-share.png",
     stars: 0,
@@ -265,7 +267,7 @@ export const workflows = [
     lessonsLearned:
       "Automation + AI summarization removes noise and keeps focus only on high value updates.",
     image: "/images/workflow-1.png",
-    link: "https://n8n.srv1017948.hstgr.cloud/workflow/JZku95JG5wkI8h3L",
+    link: "https://github.com/vipinsao/workflows/blob/master/JobOpportunityMultiModelAutomation.md", // consider adding a GitHub repo link separately in UI
     tags: ["Automation", "n8n", "AI", "Productivity", "Monitoring"],
   },
   {
@@ -299,7 +301,8 @@ export const workflows = [
     lessonsLearned:
       "A simple weighted keyword score filters noise effectively; add headless browsing only when pages render dynamically.",
     image: "/images/workflow-2.png",
-    link: "https://github.com/vipinsao",
+    // TODO: point this to a specific repo or documentation page when ready
+    link: "https://github.com/vipinsao/workflows/blob/master/LinkedJobAutomation.md",
     tags: ["Automation", "n8n", "Jobs", "Telegram", "Scraping"],
   },
 ];
@@ -307,7 +310,8 @@ export const workflows = [
 export const blogs = [
   {
     id: 1,
-    title: "JavaScript vs TypeScript: When Should You Make the Switch?",
+    title:
+      "JavaScript vs TypeScript: Why Everyone's Shifting to TypeScript in 2025",
     platform: "Dev.to",
     date: "October 2024",
     readTime: "8 min read",
@@ -315,7 +319,7 @@ export const blogs = [
       "Exploring the practical differences between JavaScript and TypeScript, when to use each, and migration strategies for existing projects.",
     summary:
       "The blog explains when TypeScript reduces complexity vs when JavaScript is faster to iterate with.",
-    link: "https://dev.to/vipin_sao",
+    link: "https://dev.to/vipin_sao/javascript-vs-typescript-why-everyones-shifting-to-typescript-in-2025-3f50",
     tags: ["JavaScript", "TypeScript", "Web Development"],
     views: "500+",
   },
@@ -349,5 +353,16 @@ export const blogs = [
     link: "https://medium.com/@vipinsao3/the-ultimate-job-application-automation-from-zero-to-hero-with-ai-powered-resume-matching-3d7c999b7f49",
     tags: ["Automation", "AI Agents", "Job Search", "Resume Intelligence"],
     views: "300+",
+  },
+];
+
+// New: you can build an Education section from this later
+export const education = [
+  {
+    degree: "B.Tech in Computer Science & Engineering",
+    institution: "SSIPMT Raipur",
+    location: "Raipur, India",
+    period: "2019 - 2023",
+    grade: "79%",
   },
 ];
