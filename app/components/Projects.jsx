@@ -23,6 +23,7 @@ export default function Projects() {
               onClick={() => openModal("project", project)}
               className="group w-full text-left rounded-2xl border border-gray-200 dark:border-gray-800 p-5 hover:shadow-xl hover:border-gray-300 dark:hover:border-gray-700 hover:-translate-y-1 transition-all duration-300 bg-white dark:bg-[#0e0e0e]"
             >
+              {/* IMAGE */}
               <div className="relative w-full h-52 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-5">
                 <Image
                   src={project.image}
@@ -32,14 +33,36 @@ export default function Projects() {
                 />
               </div>
 
+              {/* TITLE */}
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                 {project.title}
               </h3>
 
+              {/* SHORT DESCRIPTION */}
               <p className="text-gray-600 dark:text-gray-400 text-sm mt-2 line-clamp-2">
                 {project.description}
               </p>
 
+              {/* DECISION SUMMARY (IMPORTANT) */}
+              {project.techStack && (
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-3">
+                  <span className="font-medium text-gray-700 dark:text-gray-300">
+                    Built with:
+                  </span>{" "}
+                  {project.techStack.slice(0, 3).join(", ")}
+                </p>
+              )}
+
+              {(project.impact || project.results) && (
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-1 line-clamp-1">
+                  <span className="font-medium text-gray-700 dark:text-gray-300">
+                    Outcome:
+                  </span>{" "}
+                  {project.impact?.[0] || project.results}
+                </p>
+              )}
+
+              {/* TAGS */}
               <div className="flex gap-2 mt-4 flex-wrap">
                 {project.tags?.slice(0, 3).map((tag, i) => (
                   <span

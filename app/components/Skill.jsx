@@ -1,4 +1,3 @@
-// src/components/Skills.jsx
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -6,6 +5,7 @@ import Image from "next/image";
 const skillGroups = [
   {
     title: "Frontend",
+    summary: "Production UI development with modern React frameworks",
     skills: [
       { name: "React", icon: "/react.svg" },
       { name: "Next.js", icon: "/nextjs.svg" },
@@ -15,6 +15,7 @@ const skillGroups = [
   },
   {
     title: "Backend",
+    summary: "API design, authentication, and server-side logic",
     skills: [
       { name: "Node.js", icon: "/nodejs.svg" },
       { name: "Express.js", icon: "/expressjs.svg" },
@@ -22,23 +23,25 @@ const skillGroups = [
   },
   {
     title: "Databases",
+    summary: "Schema design, querying, and data modeling",
     skills: [
       { name: "MongoDB", icon: "/mongodb.svg" },
       { name: "PostgreSQL", icon: "/postgresql.svg" },
     ],
   },
   {
-    title: "AI & Automation",
+    title: "AI Systems & Automation",
+    summary: "LLM integration, agents, and workflow automation",
     skills: [
       { name: "Groq API", icon: "/groq.svg" },
       { name: "Gemini AI", icon: "/gemini.svg" },
-      { name: "ChatGPT", icon: "/chatgpt.svg" },
       { name: "LangGraph", icon: "/langgraph.svg" },
       { name: "LangChain", icon: "/langchain.svg" },
     ],
   },
   {
     title: "DevOps & Tools",
+    summary: "Version control, testing, and containerization",
     skills: [
       { name: "GitHub", icon: "/github.svg" },
       { name: "Docker", icon: "/docker.svg" },
@@ -47,6 +50,7 @@ const skillGroups = [
   },
   {
     title: "Languages",
+    summary: "Core programming languages used in projects",
     skills: [
       { name: "C++", icon: "/cpp.svg" },
       { name: "Python", icon: "/python.svg" },
@@ -81,9 +85,14 @@ export default function Skills() {
               viewport={{ once: true }}
               className="border border-neutral-200 dark:border-neutral-800 rounded-xl p-5 bg-white dark:bg-neutral-900"
             >
-              <h3 className="text-base font-semibold mb-4 text-gray-900 dark:text-gray-100">
+              <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100">
                 {group.title}
               </h3>
+
+              <p className="text-xs text-gray-500 dark:text-gray-400 mb-4 mt-1">
+                {group.summary}
+              </p>
+
               <div className="grid grid-cols-2 gap-5">
                 {group.skills.map((skill) => (
                   <div key={skill.name} className="flex items-center gap-3">

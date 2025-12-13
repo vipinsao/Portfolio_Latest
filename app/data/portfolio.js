@@ -2,8 +2,8 @@
 
 export const personalInfo = {
   name: "Vipin Chandra Sao",
-  title: "Full Stack Developer | AI/GenAI Integration Specialist",
-  bio: "Full Stack Developer skilled in building AI-enabled, production-grade web applications. I combine strong engineering fundamentals with practical GenAI integration to deliver real value—not just wrappers. My current focus is creating fast, reliable, user-centric AI features in full-stack products. Open to remote opportunities with AI SaaS startups, YC-style builder teams, and innovative product companies.",
+  title: "Full Stack Developer (Web & GenAI Systems)",
+  bio: "Full-Stack Developer building production-ready web applications with practical GenAI integrations. I focus on clean engineering, reliable systems, and solving real user problems—not AI wrappers. Currently building and deploying full-stack AI-powered products and automation workflows.",
   location: "Raipur, India",
   email: "vipinc.sao@gmail.com",
   resumeUrl: "/resume.pdf", // keep this, but make sure resume.pdf exists in /public
@@ -12,7 +12,7 @@ export const personalInfo = {
     linkedin: "https://www.linkedin.com/in/vipinsao",
     twitter: "https://twitter.com/vipinSao1",
     leetcode: "https://leetcode.com/u/vipinsao/",
-    portfolio: "https://portfolio-latest-y5jf.vercel.app/",
+    portfolio: "https://vipinsao.tech",
   },
 };
 
@@ -33,7 +33,7 @@ export const about = {
     "Developer productivity tooling",
   ],
   funFact:
-    "Solved 300+ LeetCode problems with a 365-day streak—consistent iteration is my philosophy for growth.",
+    "I enjoy building small automation tools that remove repetitive manual work from daily workflows.",
 };
 
 export const experience = [
@@ -44,7 +44,7 @@ export const experience = [
     location: "Remote",
     period: "2023 - Present",
     achievements: [
-      "Built 4+ production-grade full-stack applications with stable deployments",
+      "Designed, built, and deployed 4+ production-grade full-stack applications using Next.js, Node.js, and cloud hosting (Vercel), owning features end-to-end",
       "Integrated GenAI APIs across multiple real-world use cases",
       "Created automation workflows (n8n) reducing 7+ weekly manual hours",
       "Contributed PRs to Kestra & EXXETA Trufos",
@@ -76,20 +76,20 @@ export const achievements = [
   },
   {
     title: "Production-Grade Full Stack Apps",
-    metric: "4+",
+    metric: "3+",
     description:
       "Shipped multiple deployed full-stack applications with reliable, stable deployments.",
   },
   {
     title: "GenAI Integration",
-    metric: "3+",
+    metric: "2+",
     description:
       "Integrated real-world AI workflows using Groq, Gemini, and OpenAI APIs into full-stack products.",
   },
   {
-    title: "LeetCode Consistency",
-    metric: "300+",
-    description: "300+ problems solved with a 365-day streak on LeetCode.",
+    title: "AI-Driven Workflow Automation",
+    metric: "2",
+    description: "Built two AI-powered automation workflows using n8n.",
   },
   {
     title: "GitHub Activity",
@@ -209,7 +209,7 @@ export const projectsDetail = [
       "Every social platform uses different dimension standards and compression rules. Manually converting media every time is slow and inconsistent.",
     solution:
       "Upload once → select platform preset → download optimized output. Helps creators get platform-specific media export faster without manually resizing in editors.",
-    myApproach:
+    approach:
       "Used Cloudinary’s transformation pipeline for resizing and compression presets, and built a simple guided export UI where user selects platform target before sharing.",
     challenges: [
       "Balancing quality vs file size",
