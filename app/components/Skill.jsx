@@ -30,13 +30,16 @@ const skillGroups = [
     ],
   },
   {
-    title: "AI Systems & Automation",
-    summary: "LLM integration, agents, and workflow automation",
+    title: "Retrieval & LLM systems",
+    summary:
+      "Hand-rolled retrieval, schema-validated model output, OCR \u2014 no orchestration framework",
     skills: [
       { name: "Groq API", icon: "/groq.svg" },
-      { name: "Gemini AI", icon: "/gemini.svg" },
-      { name: "LangGraph", icon: "/langgraph.svg" },
-      { name: "LangChain", icon: "/langchain.svg" },
+      { name: "Gemini API", icon: "/gemini.svg" },
+      { name: "BM25 + RRF fusion" },
+      { name: "MiniLM embeddings" },
+      { name: "Tesseract.js OCR" },
+      { name: "Zod-validated output" },
     ],
   },
   {
@@ -96,13 +99,22 @@ export default function Skills() {
               <div className="grid grid-cols-2 gap-5">
                 {group.skills.map((skill) => (
                   <div key={skill.name} className="flex items-center gap-3">
-                    <Image
-                      src={skill.icon}
-                      alt={skill.name}
-                      width={36}
-                      height={36}
-                      className="object-contain"
-                    />
+                    {skill.icon ? (
+                      <Image
+                        src={skill.icon}
+                        alt={skill.name}
+                        width={36}
+                        height={36}
+                        className="object-contain"
+                      />
+                    ) : (
+                      <span
+                        aria-hidden="true"
+                        className="w-9 h-9 shrink-0 flex items-center justify-center rounded border border-neutral-300 dark:border-neutral-700 text-xs font-mono text-neutral-500 dark:text-neutral-400"
+                      >
+                        {"{ }"}
+                      </span>
+                    )}
                     <p className="text-sm font-medium text-gray-800 dark:text-gray-200">
                       {skill.name}
                     </p>
