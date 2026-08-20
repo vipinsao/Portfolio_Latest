@@ -9,7 +9,6 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "animate.css": "^4.1.1",
     "lucide-react": "^0.552.0",
     "motion": "^11.16.1",
     "next": "^16.0.10",
