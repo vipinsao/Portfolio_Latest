@@ -1,25 +1,35 @@
-// src/data/portfolio.js
+// Every string on this page lives here.
+//
+// Nothing in this file may say anything that cannot be clicked, run, or read
+// out of a repository. Numbers are copied from the source they came from and
+// are never re-rounded on the way in: "recall@5 95%" is 95% in the eval
+// output, "13.5 kB" is what `next build` printed. If a claim has no source,
+// it is not here.
 
 export const personalInfo = {
   name: "Vipin Chandra Sao",
   // One canonical title, used everywhere on this site. "AI Software Developer"
   // survives only as the literal job-title field of the current employment row.
   title: "Full-Stack Developer (Backend-Leaning)",
-  bio: "Full-stack developer, backend-leaning. I work on APIs, data pipelines and LLM-backed features \u2014 the kind where the output is fenced to something that was actually retrieved, so the feature reports a gap instead of inventing a figure. Most of what I fix is the class of bug that returns a plausible wrong answer instead of an error.",
-  location: "Raipur, India",
+  lead:
+    "I build APIs, data pipelines and LLM-backed features where the answer is " +
+    "fenced to something that was actually retrieved — so the feature " +
+    "reports a gap instead of inventing a figure. Most of what I fix is the " +
+    "class of bug that returns a plausible wrong answer instead of an error.",
   email: "vipinc.sao@gmail.com",
   resumeUrl:
     "https://drive.google.com/file/d/1LoRU1KJxUrnphECCxJfo_2cnmJ9jniA2/view",
   availability: {
-    status: "Open to remote roles worldwide \u2014 full-time, available now.",
-    base: "Based in India (UTC+5:30). I work 10:00\u201319:00 IST as standard.",
+    short:
+      "Open to remote roles worldwide, full-time, available now — based in India (UTC+5:30).",
+    base: "I work 10:00–19:00 IST as standard.",
     overlap: [
       "~6.5h daily overlap with Central European hours",
       "~4.5h with Japan",
-      "US East Coast mornings \u2014 09:00\u201312:00 ET is 18:30\u201321:30 my time",
+      "US East Coast mornings — 09:00–12:00 ET is 18:30–21:30 my time",
     ],
     caveat:
-      "US Pacific hours I can\u2019t cover honestly, so I won\u2019t claim them.",
+      "US Pacific hours I can’t cover honestly, so I won’t claim them.",
   },
   social: {
     github: "https://github.com/vipinsao",
@@ -29,228 +39,128 @@ export const personalInfo = {
   },
 };
 
-export const about = {
-  philosophy:
-    "I believe good software solves real problems with clarity, speed, and scalability. AI should enhance workflows—not overcomplicate them.",
-  approach: [
-    "Focus on real user problems and measurable product value",
-    "Ship fast using modern stacks (Next.js, React, TypeScript, Node.js)",
-    "Integrate GenAI where it actually improves user outcomes",
-    "Deploy, collect feedback, iterate, and optimize",
-    "Write clean, maintainable, production-ready code",
-  ],
-  currentFocus: [
-    "Full-stack AI product building",
-    "GenAI integrations into real workflows",
-    "Open-source contributions",
-    "Developer productivity tooling",
-  ],
-  funFact:
-    "I enjoy building small automation tools that remove repetitive manual work from daily workflows.",
-};
-
-export const experience = [
+/**
+ * The two facts that go above the fold.
+ *
+ * A recruiter's first pass is measured in seconds, so the top of the page gets
+ * the two things almost nobody else's portfolio has: a merged pull request
+ * into a project I do not maintain, and a published evaluation whose result
+ * contradicted my own design. Both are links, because a claim a reader has to
+ * take on trust is worth nothing on a page like this.
+ */
+export const proof = [
   {
-    id: 1,
-    title: "AI Software Developer",
-    company: "An internal multi-channel e-commerce operations platform",
-    location: "Remote",
-    period: "Dec 2025 - Present",
-    achievements: [
-      "Sole author of five production subsystems: marketplace API integrations, catalog data pipelines, an email/SMS notification service, and a fifteen-tab analytics frontend",
-      "180 merged PRs and 149 SQL migrations; second of thirteen contributors; roughly two fix: commits for every feat: commit \u2014 the class of bug that returns a plausible wrong answer instead of an error",
-      "Traced a dashboard that had been confidently wrong for months to a paginated query looping over ranged offsets with no ORDER BY. Pages overlapped, so after de-duplication the result was 11.4% short and the period-over-period trend read \u22128.2% where the truth was \u221214.9%. Fixed, then written up as a standing audit rule for every other ranged pagination loop in the codebase",
-      "Built a Postgres-backed atomic budget governor \u2014 a usage table plus consume/remaining stored procedures \u2014 for a 5,000-request monthly vendor plan that an uncapped five-minute job was burning in about 48 hours. Routed all seven consumers through it, with per-consumer daily caps sized to survive a 32-day billing cycle",
-      "Enforced a fail-closed gate at the single writer every automated live-listing write converges on, rather than patching each caller: refuses on a missing or unreadable flag row, requires provenance, detects fan-out on all fields rather than media only, and treats an unfetchable schema as a refusal",
-      "Claude and Gemini APIs in production for classification, extraction and content analysis \u2014 outputs source-fenced to stored data so a feature reports a gap instead of inventing a figure, and human-in-the-loop approval on every write path",
-    ],
+    label: "PR #12605",
+    text: "Merged into kestra — 27.9k★ workflow engine, November 2025.",
+    href: "https://github.com/kestra-io/kestra/pull/12605",
   },
   {
-    id: 2,
-    title: "Independent Full Stack Developer",
-    company: "Self-Driven Projects & Open Source",
-    location: "Remote",
-    period: "Jul 2023 - Dec 2025",
-    achievements: [
-      "Designed, built and deployed four full-stack applications end to end \u2014 each one publicly reachable and each one revisited in 2026 with an evaluation harness or a test suite that runs from a fresh clone",
-      "Two merged pull requests into open-source projects I do not maintain: kestra (27.9k\u2605) and EXXETA Trufos",
-      "Built two n8n automation workflows for my own job-search and notification routine, both documented in a public repository",
-      "Wrote three technical posts on Dev.to and Medium on TypeScript adoption and workflow automation",
-    ],
-  },
-  {
-    id: 3,
-    title: "Research Intern",
-    company: "Humming Minds Tech Pvt Ltd",
-    location: "Raipur, India",
-    period: "Sep 2024 - Oct 2024",
-    achievements: [
-      "Compared five modern web frameworks and recommended a stack, with the scalability and cost trade-offs written out rather than asserted",
-      "Reviewed the existing product flows and documented eight UI/UX improvement recommendations",
-      "Prepared research reports on performance, developer experience and long-term maintainability of the selected stack",
-      "Contributed to technical discussions in cross-functional team meetings",
-    ],
+    label: "recall@5 95%",
+    text:
+      "A retrieval evaluation I published whose result went against my own design: hybrid search does not beat BM25 alone on that corpus.",
+    href: "https://github.com/vipinsao/Smart-Ingredient-Analyzer#readme",
   },
 ];
 
-export const achievements = [
+/**
+ * Four case studies, ordered by how much of the work is measurable.
+ *
+ * `headline` is the single number a reader gets if they read nothing else.
+ * `change` is the project's own documented limitation, quoted from its README
+ * or DECISIONS.md rather than softened — in every case the repository says
+ * this about itself already.
+ */
+export const caseStudies = [
   {
-    title: "Merged into kestra (27.9k\u2605)",
-    metric: "PR #12605",
-    description:
-      "Merged Nov 2025. Picked up filed issue #12583: the Gantt view rendered \u201cInvalid date\u201d for executions that never started. Added defensive date parsing.",
-    link: "https://github.com/kestra-io/kestra/pull/12605",
-  },
-  {
-    title: "Merged into EXXETA Trufos",
-    metric: "PR #416",
-    description:
-      "Merged Jun 2025. HTTP header autocomplete for an open-source Electron REST client \u2014 +495/\u221274 across 8 files, over several rounds with the maintainer: a useMemo pass for re-render cost, then a rework from a portal-based dropdown to shadcn\u2019s combobox.",
-    link: "https://github.com/EXXETA/trufos/pull/416",
-  },
-  {
-    title: "Deployed full-stack applications",
-    metric: "4",
-    description:
-      "Smart Ingredient Analyzer, AI Interview Platform, Social Share and TypingWeb are each publicly reachable. A fifth project, the auth service, is a backend service that runs locally against its own embedded PostgreSQL.",
-    link: "https://github.com/vipinsao?tab=repositories",
-  },
-  {
-    title: "Tests that run from a fresh clone",
-    metric: "350",
-    description:
-      "86 in Smart Ingredient Analyzer, 85 in AI Interview Platform, 179 in Social Share \u2014 every one runnable with no API key, no account and no network. The auth service adds 86 more against an embedded PostgreSQL it starts itself.",
-  },
-  {
-    title: "AI workflow automation",
-    metric: "2",
-    description:
-      "Two documented n8n workflows: a daily multi-channel opportunity digest, and a LinkedIn job scraper that scores each posting against resume keywords before alerting.",
-    link: "https://github.com/vipinsao/workflows",
-  },
-];
-
-export const projectsDetail = [
-  {
-    id: 1,
+    id: "smart-ingredient-analyzer",
+    index: "01",
     title: "Smart Ingredient Analyzer",
-    category: "fullstack",
-    description:
+    summary:
       "Photograph a food label: OCR reads it, hybrid retrieval looks each ingredient up in a committed Open Food Facts corpus, and every verdict has to cite the passage it came from — or the ingredient is reported as uncovered.",
+    headline: { value: "95%", unit: "recall@5", note: "over 58 hand-labelled questions" },
     problem:
-      "The first version asked a language model \u201cis this ingredient harmful?\u201d and rendered the reply. For a food-safety tool that is the wrong shape of output: unattributable, different between identical requests, and confidently wrong about ingredients it knows nothing about.",
-    solution:
-      "Rebuilt the answer path around retrieval from a public dataset with a hard citation requirement. A verdict citing a passage id that was never in the prompt is rejected and the model is asked again; an ingredient the corpus does not describe comes back in an `uncovered` list with the reason attached. Reporting the gap is the feature.",
-    myApproach:
-      "Two retrievers fused with weighted Reciprocal Rank Fusion, both hand-rolled: BM25 over passage text plus aliases (labels write INS211 / E211 / E 211 for the same additive, so a lexical index matters), and dense cosine over Xenova/all-MiniLM-L6-v2 embeddings. No vector database \u2014 839 chunks \u00d7 384 dimensions is ~322k multiply-adds per query, smaller than the JSON parsing around it. Allergen flags and the health score are computed in code, never asked of the model.",
-    challenges: [
-      "The rate limiter was fully bypassable: `trust proxy` was set with no proxy in front of it, so 300 requests against a 20-request budget all went through",
-      "The pixel cap bounded width only, so a 2000\u00d720000 upload from a 5MB file cost 126 seconds of CPU",
-      "The diagnosis on record \u2014 that Tesseract worker startup was most of a slow OCR call \u2014 was wrong: measurement put it at 14%",
+      "The first version asked a language model “is this ingredient harmful?” and rendered the reply. For a food-safety tool that is the wrong shape of output: unattributable, different between identical requests, and confidently wrong about ingredients it knows nothing about.",
+    built:
+      "Two retrievers fused with weighted Reciprocal Rank Fusion, both hand-rolled: BM25 over passage text plus aliases (labels write INS211 / E211 / E 211 for the same additive, so a lexical index matters), and dense cosine over all-MiniLM-L6-v2 embeddings. No vector database — 839 chunks × 384 dimensions is ~322k multiply-adds per query, smaller than the JSON parsing around it. A verdict citing a passage id that was never in the prompt is rejected and re-asked; an ingredient the corpus does not describe comes back in an `uncovered` list with the reason attached. Allergen flags and the health score are arithmetic, never asked of the model.",
+    measured: [
+      "recall@5 of 95% over 58 hand-labelled questions — `npm run eval`, six seconds, no API key and no network",
+      "Abstention precision 100% (0 of 40 answerable questions wrongly refused); recall 72% (13 of 18 out-of-corpus questions refused)",
+      "The ablation is published including the result it did not want: hybrid matches BM25 alone at 83/95/95% for recall@1/@3/@5, and dense-only manages 48/73/78%",
+      "OCR pre-processing raises Tesseract’s own confidence from 57 to 67 on the committed sample label — one image on one machine, not a benchmark",
+      "86 unit tests, and CI fails the build if hybrid recall@5 drops below 85%",
     ],
-    techStack: [
+    change:
+      "Citation validity, groundedness and post-generation abstention are unit-tested against a stubbed model but have never been measured against a live one, because no API key was available. And retrieval precision on generic words is still wrong — `sugar` reaches the sweetener passage instead of abstaining. The README says both, and the second is unfixed.",
+    stack: [
       "React",
       "Vite",
       "Node.js",
       "Express",
       "Tesseract.js",
       "Transformers.js",
-      "Groq API",
+      "Groq",
       "Zod",
     ],
-    impact: [
-      "recall@5 of 95% over 58 hand-labelled questions \u2014 `cd back-end && npm run eval`, six seconds, no API key and no network",
-      "Abstention precision 100% (never refused a question the corpus can answer, 0 of 40); recall 72% (refused 13 of 18 out-of-corpus questions)",
-      "The ablation is in the README including the result it did not want: hybrid does not beat BM25 alone on this corpus",
-      "86 unit tests, and CI fails the build if hybrid recall@5 drops below 85%",
-    ],
-    liveLink: "https://smart-ingredient-analyzer.vercel.app/",
-    githubLink: "https://github.com/vipinsao/Smart-Ingredient-Analyzer",
+    repo: "https://github.com/vipinsao/Smart-Ingredient-Analyzer",
+    // No demo link, on purpose: the deployment that used to be linked runs the
+    // pre-retrieval build, which is the version this case study is about
+    // replacing.
+    demo: null,
     image: "/images/smart-ingredient.png",
-    tags: ["Retrieval", "OCR", "Evaluation"],
   },
   {
-    id: 2,
+    id: "ai-interview-platform",
+    index: "02",
     title: "AI Interview Platform",
-    category: "fullstack",
-    description:
-      "A recruiter generates a role-specific interview with a language model and shares a link; the candidate answers out loud in the browser, each answer is scored server-side as it is given, and the scores are collected into a report.",
+    summary:
+      "A recruiter generates a role-specific interview and shares a link; the candidate answers out loud in the browser, each answer is scored server-side as it is given, and the scores are collected into a report.",
+    headline: { value: "76.8 → 13.5 kB", unit: "first-load JS", note: "on the interview route" },
     problem:
-      "The first build let the candidate decide their own result. The report was assembled from what the browser posted at the end rather than from anything the server had recorded, so a candidate could set their own score \u2014 and a recruiter could grant themselves credits, because row level security decides whose row you may write, not which columns.",
-    solution:
-      "Each answer is posted as a question index plus a transcript; the route reads the question from the stored list, scores it 0\u201310 against explicit criteria and writes that score to `answer_scores` as it issues it. The final report takes scores from those rows, computes the rating breakdown arithmetically, and asks the model only for the prose summary. Nothing the browser holds at the end decides what the report says.",
-    myApproach:
-      "Replaced the hosted voice-agent SDK with the browser-native Web Speech API \u2014 `speechSynthesis` reads the question, `SpeechRecognition` captures the answer. Every branch of a live session (no recognition in this browser, microphone blocked, recognition error, candidate silent, scoring endpoint down) is a transition in a pure reducer, which is why there is no state where the page shows a spinner with no way forward.",
-    challenges: [
-      "Speech recognition does not exist in Firefox, so support is feature-detected at runtime and a browser without it drops to typed answers",
-      "Credits were granted before PayPal was asked whether the money had arrived",
-      "The rate limiter read, decided in JavaScript, then wrote \u2014 which let both of two simultaneous requests through",
+      "The first build let the candidate decide their own result. The report was assembled from what the browser posted at the end rather than from anything the server had recorded, so a candidate could set their own score — and a recruiter could grant themselves credits, because row level security decides whose row you may write, not which columns.",
+    built:
+      "Each answer is posted as a question index plus a transcript; the route reads the question from the stored list, scores it 0–10 against explicit criteria and writes that score as it issues it. The final report takes scores from those rows, computes the rating breakdown arithmetically, and asks the model only for the prose summary. Nothing the browser holds at the end decides what the report says. The hosted voice-agent SDK came out in favour of the browser-native Web Speech API, and every branch of a live session — no recognition in this browser, microphone blocked, candidate silent, scoring endpoint down — is a transition in a pure reducer, so there is no state that shows a spinner with no way forward.",
+    measured: [
+      "Dropping the paid voice SDK for the Web Speech API took the interview route’s first-load JavaScript from 76.8 kB to 13.5 kB, and no vendor key ships to the client — measured from `next build` before and after",
+      "85 tests run with no keys, no card and no network; 109 when given a real PostgreSQL",
+      "49 read-only checks assert the live database catalogue matches the committed schema",
+      "A read-only report link is a UUIDv4 looked up by equality on a unique index, never listed, expiring after fourteen days and revocable before then",
     ],
-    techStack: [
+    change:
+      "The score is a language model’s judgement, not a measurement — the same answer can score differently on different runs, and there is no accuracy figure because none has been measured. Nor has an order ever been captured against a live PayPal sandbox: the logic is tested, the integration is not.",
+    stack: [
       "Next.js",
       "Supabase (Postgres + RLS)",
       "Web Speech API",
       "Groq",
       "Zod",
       "PayPal",
-      "Tailwind",
     ],
-    impact: [
-      "Replaced a paid voice SDK with the browser-native Web Speech API: the interview route\u2019s first-load JavaScript fell from 76.8 kB to 13.5 kB, and no vendor key ships to the client (measured from `next build` before and after \u2014 DECISIONS.md)",
-      "85 tests run with no keys, no card and no network; 109 when given a real PostgreSQL",
-      "A read-only report link is a UUIDv4 looked up by equality on a unique index, never listed, expiring after fourteen days and revocable before then",
-    ],
-    liveLink: "https://ai-interview-agent-gules.vercel.app/",
-    githubLink: "https://github.com/vipinsao/ai-interview-platform",
+    repo: "https://github.com/vipinsao/ai-interview-platform",
+    // The deployed build predates the rewrite above and its question
+    // generation is broken, so it is not linked.
+    demo: null,
     image: "/images/ai-interview.png",
-    tags: ["Voice", "Next.js", "Postgres"],
   },
   {
-    id: 3,
-    title: "TypingWeb - Speed Test Trainer",
-    category: "fullstack",
-    description:
-      "Typing trainer with three difficulty levels, an on-screen keyboard, and WPM + accuracy scoring.",
-    problem:
-      "Typing tools are boring and don’t motivate consistent improvement.",
-    solution:
-      "Built an interactive typing trainer that renders a live keyboard, highlights each key as you type, and reports WPM and accuracy at the end of every run.",
-    approach:
-      "Used Firebase Authentication for accounts plus a guest path that skips sign-up entirely, and kept the prompt set in a static JSON file so a practice run needs no database round-trip.",
-    challenges: [
-      "Tracking keydown/keyup state to drive the on-screen keyboard",
-      "Computing WPM and accuracy consistently across difficulty levels",
-      "Keeping the app fully usable without an account",
-    ],
-    techStack: ["Next.js", "TypeScript", "Firebase Auth", "Tailwind", "Vercel"],
-    impact: [
-      "Deployed and publicly usable at typingweb-two.vercel.app",
-      "Three difficulty levels driven by a static prompt set",
-      "Email/password auth with a no-signup guest mode",
-    ],
-    liveLink: "https://typingweb-two.vercel.app/",
-    githubLink: "https://github.com/vipinsao/typingweb",
-    image: "/images/typing.png",
-    tags: ["Productivity", "Frontend", "Firebase"],
-  },
-  {
-    id: 4,
+    id: "social-share",
+    index: "03",
     title: "Social Share",
-    category: "fullstack",
-    description:
-      "Upload an image once and get back the crop every social platform wants \u2014 processed locally with sharp, owner-scoped on disk, quota-capped. Video takes the other route and goes to Cloudinary for compression.",
+    summary:
+      "Upload an image once and get back the crop every social platform wants — processed locally with sharp, owner-scoped on disk, quota-capped.",
+    headline: { value: "187", unit: "tests", note: "in ~5s, no keys, no database, no network" },
     problem:
-      "Every platform uses different dimension standards, and manually re-cropping in an editor each time is slow and inconsistent. The first build had a worse problem than that: every account was handed every other account\u2019s Cloudinary publicId, because the video query was unscoped and uploads used the public delivery type.",
-    solution:
-      "Upload once, pick a platform preset, download the output. Images are decoded, auto-rotated, EXIF-stripped and re-encoded to WebP by sharp, then stored under storage/uploads/<userId>/<id>.webp so a later read is scoped to the caller by the path itself, and re-cropped on demand with fit: cover and attention gravity.",
-    myApproach:
-      "Moving images off a hosted media API onto local sharp is what made the exact output dimensions testable at all \u2014 the suite asserts them rather than trusting a URL parameter. Clerk runs in middleware and again inside every route handler, so protection does not depend on the matcher alone, and every Prisma query is filtered by userId.",
-    challenges: [
-      "The image format was decided from the Content-Type the client typed, so 119 bytes of SVG declaring image/png passed every check and cost 4,967ms of CPU in sharp",
-      "Request bodies were measured after being buffered, so 250MB offered was parsed in full at about 1GB RSS",
-      "The first orphan reaper had its two sides backwards \u2014 a missing storage directory made every row look like an orphan, and it would have deleted the lot",
+      "Re-cropping by hand for every platform is slow and inconsistent. The first build had a worse problem than that: every account was handed every other account’s Cloudinary publicId, because the video query was unscoped and uploads used the public delivery type.",
+    built:
+      "Images are decoded, auto-rotated, EXIF-stripped and re-encoded to WebP by sharp, then stored under `storage/uploads/<userId>/<id>.webp`, so a later read is scoped to the caller by the path itself. Moving off a hosted media API is what made the output dimensions testable at all — the suite asserts them rather than trusting a URL parameter. Auth runs in middleware and again inside every route handler, so protection does not depend on the matcher alone, and every query is filtered by user id.",
+    measured: [
+      "187 assertions across 11 suites in about five seconds with no keys, no accounts, no database and no network",
+      "A 119-byte SVG declaring `image/png` was decoded as an 8000×8000 image and cost 4,967ms of CPU; the format is now sniffed from the bytes",
+      "A 250MB body was parsed in full at about 1GB RSS; metering the stream now returns 413 after 12MB and 28ms",
+      "Upload is rate-limited per user, MIME-allowlisted, 10MB-capped and quota-checked, and writes the file before the row so a failed insert unlinks rather than orphans",
     ],
-    techStack: [
+    change:
+      "No live Cloudinary account was used at any point, so the video path is tested against a fake — that does not establish the real SDK behaves the way the fake does. And any video uploaded before the `authenticated` change is still public: those URLs still resolve, and no code change revokes them.",
+    stack: [
       "Next.js",
       "TypeScript",
       "Prisma",
@@ -259,175 +169,128 @@ export const projectsDetail = [
       "Clerk",
       "Cloudinary (video only)",
     ],
-    impact: [
-      "179 tests in about five seconds with no keys, no accounts, no database and no network \u2014 the sharp pipeline\u2019s exact output dimensions, path traversal rejected on read and on delete, the quota\u2019s boundary byte, and the orphan reaper in both directions",
-      "Upload path is rate-limited per user, MIME-allowlisted, 10MB-capped and quota-checked, and writes the file before the row so a failed insert unlinks rather than orphans",
-      "Delete reverses the order \u2014 row first, then file \u2014 so a deleted image stops being served the moment its row is gone",
-    ],
-    liveLink: "https://ai-saas-webapp.vercel.app/",
-    githubLink: "https://github.com/vipinsao/ai-saas-webapp",
+    repo: "https://github.com/vipinsao/ai-saas-webapp",
+    demo: "https://ai-saas-webapp.vercel.app/",
     image: "/images/social-share.png",
-    tags: ["Media", "TypeScript", "Storage"],
   },
   {
-    id: 5,
+    id: "auth-service",
+    index: "04",
     title: "Auth Service",
-    category: "backend",
-    description:
-      "A standalone authentication service in TypeScript: registration and login, RS256 access tokens, rotating refresh tokens with reuse detection, password reset, email verification and role-based access control, backed by PostgreSQL.",
+    summary:
+      "A standalone authentication service in TypeScript: RS256 access tokens, rotating refresh tokens with reuse detection, password reset, email verification and role-based access control, backed by PostgreSQL.",
+    headline: { value: "86", unit: "tests", note: "against a PostgreSQL the repo starts itself" },
     problem:
-      "Most portfolio auth is a login form over a users table. The parts that actually decide whether a session is safe \u2014 what happens when a refresh token is replayed, whether login answers faster for an address that does not exist, whether the rate limiter can be bought a fresh budget by setting a header \u2014 are the parts usually skipped.",
-    solution:
-      "A refresh token carries the id of its own row; rows issued from one login share a family id. Refreshing burns the presented row and issues its successor. If an already-rotated token is presented again the service cannot tell theft from replay, so it revokes the whole family and forces a fresh login \u2014 while leaving a different session of the same user untouched.",
-    myApproach:
-      "Layered on purpose: server.ts opens the connection, app.ts builds the Express application and nothing else (which is what lets the integration tests drive it with supertest without binding a port), container.ts is the composition root, controllers hold only orchestration and the work lives in services. Every failure is an http-errors object rendered by one error handler, so the error envelope is identical across the API.",
-    challenges: [
-      "The schema had no migrations at all \u2014 it was built by TypeORM\u2019s synchronize, which is not something you run against a production database",
-      "The rate limiter keyed on X-Forwarded-For with trust proxy set and no proxy in front of it, so anyone who could set a header could buy a fresh budget",
-      "Login answered faster for an unknown address than for a real one, which is an account enumeration oracle",
-      "The documented setup path did not work: .env.example lists optional variables as empty strings, and ?? does not treat \"\" as absent, so a fresh clone handed expiresIn: \"\" to jsonwebtoken and 500\u2019d every login",
+      "Most portfolio auth is a login form over a users table. The parts that actually decide whether a session is safe — what happens when a refresh token is replayed, whether login answers faster for an address that does not exist, whether the rate limiter can be handed a fresh budget by setting a header — are the parts usually skipped.",
+    built:
+      "A refresh token carries the id of its own row, and rows issued from one login share a family id. Refreshing burns the presented row and issues its successor. If an already-rotated token is presented again the service cannot tell theft from replay, so it revokes the whole family and forces a fresh login — while leaving a different session of the same user untouched. The layering is deliberate: `app.ts` builds the Express application and nothing else, which is what lets the integration tests drive it with supertest without binding a port.",
+    measured: [
+      "86 tests, mostly integration through supertest — and the repository brings its own PostgreSQL via `embedded-postgres`, so there is no Docker, no system package and no account between a clone and a green suite",
+      "The rate-limiter bypass was proven before it was fixed: 60 logins with unique forged `X-Forwarded-For` headers returned 40 × 429 unset, and 0 × 429 with trust-proxy misconfigured",
+      "19 advisories (1 critical, 10 high, 6 moderate, 2 low) taken to `found 0 vulnerabilities`, at a cost of 52 transitive packages moved in one step",
+      "Rotation, reuse detection revoking a family while a sibling session survives, the login timing oracle staying closed, the lockout schedule and RBAC are each covered by a test rather than asserted in a README",
     ],
-    techStack: [
+    change:
+      "Docker Compose and the CI workflow have not been executed as such — Docker was not available where this was built, so the image build and healthcheck ordering are unexercised. And the progressive lockout trades a hard-to-exploit credential attack for an easy-to-exploit availability one: an attacker willing to keep sending traffic can hold an account at the 15-minute cap. Both are at the bottom of the README rather than left to be discovered.",
+    stack: [
       "TypeScript",
       "Express 5",
       "PostgreSQL",
       "TypeORM",
-      "JWT (RS256 + HS256)",
+      "JWT (RS256)",
       "Jest",
       "Supertest",
       "Docker",
     ],
-    impact: [
-      "86 tests, mostly integration through supertest \u2014 and the repository brings its own PostgreSQL via embedded-postgres, so there is no Docker, no system package and no account between a clone and a green suite",
-      "Rotation, reuse detection revoking a family while a sibling session survives, the login timing oracle staying closed, the lockout schedule and RBAC are each covered by a test rather than asserted in a README",
-      "CI runs lint, format, typecheck, build and the suite against a postgres service container",
-      "What has not been executed is listed at the bottom of the README rather than left to be discovered",
-    ],
-    githubLink: "https://github.com/vipinsao/mern-auth-service",
-    tags: ["TypeScript", "Auth", "PostgreSQL"],
+    repo: "https://github.com/vipinsao/mern-auth-service",
+    demo: null,
+    image: null,
   },
 ];
 
-export const workflows = [
+export const experience = [
   {
-    id: 1,
-    title: "Job Opportunity Multi-Channel AI Monitor",
-    category: "workflow",
-    description:
-      "An n8n-based automated workflow that collects the last 5 Gmail job-related mails, last 5 GitHub repo issues, and last 5 Twitter notifications and sends one summarized digest mail every evening at 7 PM.",
-    problem:
-      "Manually checking different platforms daily for job related updates is time-consuming, inconsistent, and easy to miss important opportunities.",
-    solution:
-      "Automated daily aggregation of multiple channel notifications (Gmail, GitHub, Twitter) combined with AI summarization and priority ranking before sending a single digest email.",
-    myApproach:
-      "Connected Gmail + GitHub APIs inside n8n, retrieved the latest notifications, processed them using Gemini AI for summarization and priority classification, and scheduled the workflow to deliver structured digest email at 7 PM daily.",
-    techStack: [
-      "n8n",
-      "Google Gemini",
-      "Gmail API",
-      "GitHub API",
-      "Cron Schedule",
+    id: "tailwind",
+    role: "AI Software Developer",
+    company: "Tailwind Marketing",
+    context: "Internal multi-channel e-commerce operations platform",
+    period: "Dec 2025 — Present",
+    bullets: [
+      "Sole author of five production subsystems: marketplace API integrations, catalog data pipelines, an email/SMS notification service, and a fifteen-tab analytics frontend.",
+      "180 merged PRs and 149 SQL migrations, second of thirteen contributors — and roughly two `fix:` commits for every `feat:`, because the class of bug I am usually chasing returns a plausible wrong answer instead of an error.",
+      "Traced a dashboard that had been confidently wrong for months to a paginated query looping over ranged offsets with no ORDER BY. Pages overlapped, so after de-duplication the result was 11.4% short and the period-over-period trend read −8.2% where the truth was −14.9%. Fixed, then written up as a standing audit rule for every other ranged pagination loop in the codebase.",
+      "Built a Postgres-backed atomic budget governor — a usage table plus consume/remaining stored procedures — for a 5,000-request monthly vendor plan that an uncapped five-minute job was burning in about 48 hours. Routed all seven consumers through it, with per-consumer daily caps sized to survive a 32-day billing cycle.",
+      "Enforced a fail-closed gate at the single writer every automated live-listing write converges on, rather than patching each caller: it refuses on a missing or unreadable flag row, requires provenance, detects fan-out across all fields rather than media only, and treats an unfetchable schema as a refusal.",
     ],
-    features: [
-      "Daily scheduled automated execution (7 PM)",
-      "Aggregates latest notifications from multiple sources",
-      "AI summarization + prioritization for fast actionable insights",
-      "One single email digest instead of checking platforms manually",
-    ],
-    results:
-      "Reduced daily checking overhead and increased ability to notice relevant opportunities faster with zero manual effort.",
-    lessonsLearned:
-      "Automation + AI summarization removes noise and keeps focus only on high value updates.",
-    image: "/images/workflow-1.png",
-    link: "https://github.com/vipinsao/workflows/blob/master/JobOpportunityMultiModelAutomation.md",
-    tags: ["Automation", "n8n", "AI", "Productivity", "Monitoring"],
   },
   {
-    id: 2,
-    title: "LinkedIn Job Search Automation",
-    category: "workflow",
-    description:
-      "VPS-hosted n8n workflow that scrapes LinkedIn job pages, scores each posting against my resume keywords, and sends a Telegram alert with details when the relevance score exceeds 50.",
-    problem:
-      "Manually scanning LinkedIn leads to noise and missed roles that actually match my resume.",
-    solution:
-      "Automated scraping + keyword scoring to detect high-fit roles and push instant Telegram notifications with the job link, id, and description.",
-    myApproach:
-      "Extracted keywords from my resume, fetched new LinkedIn job results, parsed HTML, computed a weighted relevance score, and if score > 50, sent a structured Telegram message. Added deduping and simple rate limits.",
-    techStack: [
-      "n8n",
-      "JavaScript",
-      "Cheerio (HTML parsing) / Puppeteer (optional for dynamic pages)",
-      "Telegram Bot API",
-      "Cron Jobs",
-      "Hostinger VPS",
+    id: "independent",
+    role: "Independent Full-Stack Developer",
+    company: "Self-directed projects and open source",
+    context: null,
+    period: "Jul 2023 — Dec 2025",
+    bullets: [
+      "Built and deployed four full-stack applications end to end, then revisited every one of them in 2026 with either an evaluation harness or a test suite that runs from a fresh clone — the four case studies above.",
+      "Two merged pull requests into open-source projects I do not maintain.",
+      "Wrote three technical posts and published two documented n8n automation workflows.",
     ],
-    features: [
-      "Resume keyword matcher with weighted scoring",
-      "Score thresholding (notify only if score > 50)",
-      "Telegram alerts including job link, job id, and short description",
-      "Deduping, basic rate limiting, and error retries",
-    ],
-    results:
-      "Delivers only high-fit roles directly to Telegram, cutting manual browsing time and reducing low-relevance openings.",
-    lessonsLearned:
-      "A simple weighted keyword score filters noise effectively; add headless browsing only when pages render dynamically.",
-    image: "/images/workflow-2.png",
-    link: "https://github.com/vipinsao/workflows/blob/master/LinkedJobAutomation.md",
-    tags: ["Automation", "n8n", "Jobs", "Telegram", "Scraping"],
   },
 ];
 
-export const blogs = [
+export const openSource = [
   {
-    id: 1,
+    project: "kestra",
+    stars: "27.9k★",
+    pr: "PR #12605",
+    merged: "Merged November 2025",
+    text:
+      "Picked up filed issue #12583: the Gantt view rendered “Invalid date” for executions that never started. Added defensive date parsing.",
+    href: "https://github.com/kestra-io/kestra/pull/12605",
+  },
+  {
+    project: "EXXETA Trufos",
+    stars: null,
+    pr: "PR #416",
+    merged: "Merged June 2025",
+    text:
+      "HTTP header autocomplete for an open-source Electron REST client — +495/−74 across 8 files, over several rounds with the maintainer: a useMemo pass for re-render cost, then a rework from a portal-based dropdown to shadcn’s combobox.",
+    href: "https://github.com/EXXETA/trufos/pull/416",
+  },
+];
+
+export const writing = [
+  {
     title:
-      "JavaScript vs TypeScript: Why Everyone's Shifting to TypeScript in 2025",
-    platform: "Dev.to",
+      "JavaScript vs TypeScript: Why Everyone’s Shifting to TypeScript in 2025",
+    where: "Dev.to",
     date: "July 2025",
-    readTime: "2 min read",
-    description:
-      "Exploring the practical differences between JavaScript and TypeScript, when to use each, and migration strategies for existing projects.",
-    summary:
-      "The blog explains when TypeScript reduces complexity vs when JavaScript is faster to iterate with.",
-    link: "https://dev.to/vipin_sao/javascript-vs-typescript-why-everyones-shifting-to-typescript-in-2025-3f50",
-    tags: ["JavaScript", "TypeScript", "Web Development"],
+    href: "https://dev.to/vipin_sao/javascript-vs-typescript-why-everyones-shifting-to-typescript-in-2025-3f50",
   },
   {
-    id: 2,
     title:
       "My First AI Workflow: Building My Personal Automation Assistant with n8n",
-    platform: "Medium",
+    where: "Medium",
     date: "September 2025",
-    description:
-      "This article explains how I built my very first AI workflow using n8n to automate repetitive personal tasks and turn them into a self-running assistant.",
-    summary:
-      "The blog walks through how simple triggers + smart automation + AI powered logic can replace daily manual actions and start acting like a personal productivity agent.",
-    link: "https://medium.com/@vipinsao3/my-first-ai-workflow-building-my-personal-automation-assistant-with-n8n-1d59e160ed65",
-    tags: ["Automation", "AI", "n8n", "Personal Productivity"],
+    href: "https://medium.com/@vipinsao3/my-first-ai-workflow-building-my-personal-automation-assistant-with-n8n-1d59e160ed65",
   },
-
   {
-    id: 3,
     title:
-      "The Ultimate Job Application Automation: From Zero to Hero with AI-Powered Resume Matching",
-    platform: "Medium",
+      "The Ultimate Job Application Automation: AI-Powered Resume Matching",
+    where: "Medium",
     date: "October 2025",
-    description:
-      "A deep breakdown of how I automated the job search pipeline using AI, automation workflows, and scoring logic that matches roles against resume keywords.",
-    summary:
-      "This blog explains how to use AI-based scoring + workflow automation to automatically identify high-fit job postings and reduce time wasted on irrelevant applications.",
-    link: "https://medium.com/@vipinsao3/the-ultimate-job-application-automation-from-zero-to-hero-with-ai-powered-resume-matching-3d7c999b7f49",
-    tags: ["Automation", "AI Agents", "Job Search", "Resume Intelligence"],
+    href: "https://medium.com/@vipinsao3/the-ultimate-job-application-automation-from-zero-to-hero-with-ai-powered-resume-matching-3d7c999b7f49",
+  },
+  {
+    title:
+      "Two documented n8n workflows — a daily multi-channel opportunity digest, and a LinkedIn job scorer",
+    where: "GitHub",
+    date: "Repository",
+    href: "https://github.com/vipinsao/workflows",
   },
 ];
 
-export const education = [
-  {
-    degree: "B.Tech in Computer Science & Engineering",
-    institution: "SSIPMT Raipur",
-    location: "Raipur, India",
-    period: "2019 - 2023",
-    grade: "79%",
-  },
-];
+export const education = {
+  degree: "B.Tech, Computer Science & Engineering",
+  institution: "SSIPMT Raipur",
+  period: "2019 — 2023",
+};

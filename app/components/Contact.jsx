@@ -1,65 +1,91 @@
-// src/components/Contact.jsx
-"use client";
+import Image from "next/image";
 import { personalInfo } from "../data/portfolio";
+import Section from "./Section";
 
-const socialLabels = {
-  github: "GitHub",
-  linkedin: "LinkedIn",
-  twitter: "Twitter (X)",
-  leetcode: "LeetCode",
-  portfolio: "Portfolio",
-};
+const channels = [
+  { key: "linkedin", label: "LinkedIn", handle: "in/vipinsao" },
+  { key: "github", label: "GitHub", handle: "@vipinsao" },
+];
 
+/**
+ * The last screen answers the two questions a recruiter has left: how do I
+ * reach him, and can he work my hours.
+ *
+ * The timezone detail sits here rather than in the hero — the hero gets the
+ * one-line version, this gets the overlap arithmetic, including the hours
+ * that are not honestly coverable. Volunteering the gap is cheaper than
+ * discovering it on a scheduling call.
+ */
 export default function Contact() {
+  const { email, availability, social, name } = personalInfo;
+
   return (
-    <section
+    <Section
       id="contact"
-      className="w-full py-28 bg-white dark:bg-neutral-950 border-t border-neutral-200 dark:border-neutral-800"
+      eyebrow="Contact"
+      title="Open to remote roles, available now."
     >
-      <div className="max-w-6xl mx-auto w-full px-6 flex flex-col items-center text-center">
-        <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 dark:text-white mb-6">
-          Let&apos;s Build Something Meaningful Together.
-        </h2>
+      <div className="grid gap-12 sm:gap-16 lg:grid-cols-[minmax(0,1fr)_auto]">
+        <div className="min-w-0">
+          <ul className="divide-y divide-line border-y border-line">
+            <li>
+              <a
+                href={`mailto:${email}`}
+                className="flex flex-col gap-0.5 py-4 sm:flex-row sm:items-baseline sm:gap-6"
+              >
+                <span className="mono shrink-0 text-muted sm:w-28">Email</span>
+                <span className="text-step-1 text-fg">{email}</span>
+              </a>
+            </li>
+            {channels.map((c) => (
+              <li key={c.key}>
+                <a
+                  href={social[c.key]}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col gap-0.5 py-4 sm:flex-row sm:items-baseline sm:gap-6"
+                >
+                  <span className="mono shrink-0 text-muted sm:w-28">
+                    {c.label}
+                  </span>
+                  <span className="text-step-1 text-fg">{c.handle}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
 
-        <p className="text-gray-600 dark:text-gray-400 max-w-2xl text-base leading-relaxed mb-6">
-          I’m open to remote full-time and contract opportunities with AI-driven
-          startups, YC-funded teams, and product companies where engineering
-          quality matters.
-        </p>
+          <div className="mt-10 max-w-measure">
+            <h3 className="mono uppercase tracking-[0.14em] text-muted">
+              Hours
+            </h3>
+            <p className="mt-3 text-step-0 text-fg">{availability.base}</p>
+            <ul className="mt-3 space-y-1.5">
+              {availability.overlap.map((line) => (
+                <li
+                  key={line}
+                  className="border-l border-line pl-4 text-step-0 text-fg"
+                >
+                  {line}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 text-step--1 text-muted">
+              {availability.caveat}
+            </p>
+          </div>
+        </div>
 
-        <p className="text-sm text-gray-500 dark:text-gray-400 mb-8">
-          Email:{" "}
-          <a
-            href={`mailto:${personalInfo.email}`}
-            className="underline underline-offset-4 hover:text-gray-800 dark:hover:text-gray-200"
-          >
-            {personalInfo.email}
-          </a>
-        </p>
-
-        <a
-          href={personalInfo.social.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-6 py-3 rounded-md bg-black dark:bg-white text-white dark:text-black font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition"
-        >
-          Contact Me
-        </a>
-
-        <div className="flex flex-wrap justify-center gap-6 mt-10 text-sm">
-          {Object.keys(personalInfo.social).map((key) => (
-            <a
-              key={key}
-              href={personalInfo.social[key]}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition"
-            >
-              {socialLabels[key] ?? key}
-            </a>
-          ))}
+        <div className="order-first lg:order-none">
+          <Image
+            src="/user-vipin.png"
+            alt={name}
+            width={160}
+            height={160}
+            sizes="160px"
+            className="h-28 w-28 rounded-full border border-line object-cover sm:h-40 sm:w-40"
+          />
         </div>
       </div>
-    </section>
+    </Section>
   );
 }
