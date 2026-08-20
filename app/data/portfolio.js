@@ -66,34 +66,38 @@ export const experience = [
 
 export const achievements = [
   {
-    title: "Open Source Contributions",
-    metric: "2 PRs",
+    title: "Merged into kestra (27.9k\u2605)",
+    metric: "PR #12605",
     description:
-      "Merged PRs into Kestra and EXXETA Trufos, improving real production tooling. See GitHub profile for details.",
-    link: "https://github.com/vipinsao",
+      "Merged Nov 2025. Picked up filed issue #12583: the Gantt view rendered \u201cInvalid date\u201d for executions that never started. Added defensive date parsing.",
+    link: "https://github.com/kestra-io/kestra/pull/12605",
   },
   {
-    title: "Production-Grade Full Stack Apps",
-    metric: "3+",
+    title: "Merged into EXXETA Trufos",
+    metric: "PR #416",
     description:
-      "Shipped multiple deployed full-stack applications with reliable, stable deployments.",
+      "Merged Jun 2025. HTTP header autocomplete for an open-source Electron REST client \u2014 +495/\u221274 across 8 files, over several rounds with the maintainer: a useMemo pass for re-render cost, then a rework from a portal-based dropdown to shadcn\u2019s combobox.",
+    link: "https://github.com/EXXETA/trufos/pull/416",
   },
   {
-    title: "GenAI Integration",
-    metric: "2+",
+    title: "Deployed full-stack applications",
+    metric: "4",
     description:
-      "Integrated real-world AI workflows using Groq, Gemini, and OpenAI APIs into full-stack products.",
+      "Smart Ingredient Analyzer, AI Interview Platform, Social Share and TypingWeb are each publicly reachable. A fifth project, the auth service, is a backend service that runs locally against its own embedded PostgreSQL.",
+    link: "https://github.com/vipinsao?tab=repositories",
   },
   {
-    title: "AI-Driven Workflow Automation",
+    title: "Tests that run from a fresh clone",
+    metric: "350",
+    description:
+      "86 in Smart Ingredient Analyzer, 85 in AI Interview Platform, 179 in Social Share \u2014 every one runnable with no API key, no account and no network. The auth service adds 86 more against an embedded PostgreSQL it starts itself.",
+  },
+  {
+    title: "AI workflow automation",
     metric: "2",
-    description: "Built two AI-powered automation workflows using n8n.",
-  },
-  {
-    title: "GitHub Activity",
-    metric: "288+",
     description:
-      "288+ GitHub contributions (commits, PRs, issues) in a year, showing consistent engineering practice.",
+      "Two documented n8n workflows: a daily multi-channel opportunity digest, and a LinkedIn job scraper that scores each posting against resume keywords before alerting.",
+    link: "https://github.com/vipinsao/workflows",
   },
 ];
 
@@ -320,7 +324,6 @@ export const blogs = [
       "The blog explains when TypeScript reduces complexity vs when JavaScript is faster to iterate with.",
     link: "https://dev.to/vipin_sao/javascript-vs-typescript-why-everyones-shifting-to-typescript-in-2025-3f50",
     tags: ["JavaScript", "TypeScript", "Web Development"],
-    views: "500+",
   },
   {
     id: 2,
@@ -335,7 +338,6 @@ export const blogs = [
       "The blog walks through how simple triggers + smart automation + AI powered logic can replace daily manual actions and start acting like a personal productivity agent.",
     link: "https://medium.com/@vipinsao3/my-first-ai-workflow-building-my-personal-automation-assistant-with-n8n-1d59e160ed65",
     tags: ["Automation", "AI", "n8n", "Personal Productivity"],
-    views: "300+",
   },
 
   {
@@ -351,7 +353,6 @@ export const blogs = [
       "This blog explains how to use AI-based scoring + workflow automation to automatically identify high-fit job postings and reduce time wasted on irrelevant applications.",
     link: "https://medium.com/@vipinsao3/the-ultimate-job-application-automation-from-zero-to-hero-with-ai-powered-resume-matching-3d7c999b7f49",
     tags: ["Automation", "AI Agents", "Job Search", "Resume Intelligence"],
-    views: "300+",
   },
 ];
 
