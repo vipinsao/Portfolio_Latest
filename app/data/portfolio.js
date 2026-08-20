@@ -2,10 +2,25 @@
 
 export const personalInfo = {
   name: "Vipin Chandra Sao",
-  title: "Full Stack Developer (Web & GenAI Systems)",
-  bio: "Full-Stack Developer building production-ready web applications with practical GenAI integrations. I focus on clean engineering, reliable systems, and solving real user problems—not AI wrappers. Currently building and deploying full-stack AI-powered products and automation workflows.",
+  // One canonical title, used everywhere on this site. "AI Software Developer"
+  // survives only as the literal job-title field of the current employment row.
+  title: "Full-Stack Developer (Backend-Leaning)",
+  bio: "Full-stack developer, backend-leaning. I work on APIs, data pipelines and LLM-backed features \u2014 the kind where the output is fenced to something that was actually retrieved, so the feature reports a gap instead of inventing a figure. Most of what I fix is the class of bug that returns a plausible wrong answer instead of an error.",
   location: "Raipur, India",
   email: "vipinc.sao@gmail.com",
+  resumeUrl:
+    "https://drive.google.com/file/d/1LoRU1KJxUrnphECCxJfo_2cnmJ9jniA2/view",
+  availability: {
+    status: "Open to remote roles worldwide \u2014 full-time, available now.",
+    base: "Based in India (UTC+5:30). I work 10:00\u201319:00 IST as standard.",
+    overlap: [
+      "~6.5h daily overlap with Central European hours",
+      "~4.5h with Japan",
+      "US East Coast mornings \u2014 09:00\u201312:00 ET is 18:30\u201321:30 my time",
+    ],
+    caveat:
+      "US Pacific hours I can\u2019t cover honestly, so I won\u2019t claim them.",
+  },
   social: {
     github: "https://github.com/vipinsao",
     linkedin: "https://www.linkedin.com/in/vipinsao",
@@ -55,7 +70,7 @@ export const experience = [
     title: "Independent Full Stack Developer",
     company: "Self-Driven Projects & Open Source",
     location: "Remote",
-    period: "2023 - Dec 2025",
+    period: "Jul 2023 - Dec 2025",
     achievements: [
       "Designed, built and deployed four full-stack applications end to end \u2014 each one publicly reachable and each one revisited in 2026 with an evaluation harness or a test suite that runs from a fresh clone",
       "Two merged pull requests into open-source projects I do not maintain: kestra (27.9k\u2605) and EXXETA Trufos",
