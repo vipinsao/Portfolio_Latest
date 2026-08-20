@@ -1,24 +1,36 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./app/**/*.{js,jsx}"],
   theme: {
     extend: {
+      // Colours resolve through CSS custom properties, so a single `.dark`
+      // class on <html> re-themes the whole page and no component needs a
+      // parallel `dark:` class for every colour it sets.
       colors: {
-        lightHover: "#fcf4ff",
-        darkHover: "#2a004a",
-        darkTheme: "#11001F",
+        bg: "var(--bg)",
+        surface: "var(--surface)",
+        fg: "var(--fg)",
+        muted: "var(--muted)",
+        line: "var(--line)",
+        "line-strong": "var(--line-strong)",
+        accent: "var(--accent)",
+      },
+      fontSize: {
+        "step--1": "var(--step--1)",
+        "step-0": "var(--step-0)",
+        "step-1": "var(--step-1)",
+        "step-2": "var(--step-2)",
+        "step-3": "var(--step-3)",
+        "step-4": "var(--step-4)",
+        "step-5": "var(--step-5)",
       },
       fontFamily: {
-        Outfit: ["Outfit", "sans-serif"],
-        Ovo: ["Ovo", "serif"],
+        display: ["var(--font-display)", "Georgia", "serif"],
+        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
       },
-      boxShadow: {
-        black: "4px 4px 0 #000",
-        white: "4px 4px 0 #fff",
+      maxWidth: {
+        measure: "var(--measure)",
+        shell: "62rem",
       },
     },
   },

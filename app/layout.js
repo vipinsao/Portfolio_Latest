@@ -1,5 +1,33 @@
+import { Inter, Newsreader } from "next/font/google";
 import "./globals.css";
 import Providers from "./components/Providers";
+
+/**
+ * Two families, both self-hosted by `next/font` — no request leaves the page
+ * for a stylesheet, and no layout shift, because the metrics are known at
+ * build time.
+ *
+ * Newsreader carries the headings; Inter carries everything a reader actually
+ * reads at length. Numbers and stacks use the system mono stack, which costs
+ * nothing to download.
+ *
+ * The previous rule was `* { font-family: Outfit }` in globals.css with no
+ * @font-face and no <link> behind it, so the page had been rendering in the
+ * browser default all along.
+ */
+const sans = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-sans",
+});
+
+const display = Newsreader({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600"],
+  style: ["normal"],
+  variable: "--font-display",
+});
 
 const siteUrl = "https://portfolio-latest-y5jf.vercel.app";
 const title = "Vipin Chandra Sao — Full-Stack Developer (Backend-Leaning)";
@@ -59,8 +87,18 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="transition-colors duration-300 bg-white dark:bg-neutral-950">
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${sans.variable} ${display.variable}`}
+    >
+      <body className="bg-bg text-fg antialiased">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:border focus:border-line-strong focus:bg-surface focus:px-4 focus:py-2 focus:text-step--1"
+        >
+          Skip to content
+        </a>
         <Providers>{children}</Providers>
       </body>
     </html>
