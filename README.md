@@ -24,7 +24,13 @@ app/
   context/        ModalContext — drives the project detail modal
   data/
     portfolio.js  All site content: bio, experience, projects, workflows, blogs
-  layout.js       Root layout + theme provider
+  layout.js       Server component. Exports `metadata` (title, description,
+                  canonical, Open Graph, Twitter card) — this only works
+                  because the layout is NOT "use client"; the App Router
+                  ignores a `metadata` export from a client module.
+  components/Providers.jsx
+                  Every client-side provider (next-themes, ModalProvider,
+                  ModalComponent), kept out of layout.js for that reason.
   page.js         Single-page composition of every section
 assets/           Icon and logo imports consumed by components
 public/           Static images referenced by portfolio.js
@@ -55,9 +61,17 @@ npm run lint    # eslint
 - Content is data-driven, so adding a project means appending an object to
   `projectsDetail` in `app/data/portfolio.js` and dropping its image in
   `public/images/`.
-- The GitHub Pages URL for this repo serves the default Jekyll rendering of
-  this README, not the app — a Next.js App Router build needs a Node host or a
-  static export, so use the Vercel deployment instead.
+- Every claim on the site traces to code in one of the linked repositories or
+  to a command whose output is quoted in the commit that introduced it. Stack
+  lists are read off `package.json`; measured figures come from that project's
+  own test or eval harness. Do not add a number here that no command produces.
+- The GitHub Pages URL for this repo (`vipinsao.github.io/Portfolio_Latest/`)
+  cannot run a Next.js App Router build, and by default served a Jekyll
+  rendering of this README. `index.html` and `.nojekyll` at the repository root
+  now make that URL redirect to the Vercel deployment instead. Neither file is
+  part of the Next build — `public/` is what Next serves. **Turning GitHub
+  Pages off for this repo in Settings → Pages is still the cleaner fix**, and
+  needs repository-owner access.
 
 ## Author
 
