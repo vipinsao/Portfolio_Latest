@@ -69,7 +69,7 @@ export default function OpenSource() {
                   rel="noopener noreferrer"
                   className="group flex flex-col gap-1 py-3.5 sm:flex-row sm:items-baseline sm:gap-6"
                 >
-                  <span className="mono shrink-0 text-muted sm:w-40">
+                  <span className="mono shrink-0 text-muted sm:w-52">
                     {w.where} · {w.date}
                   </span>
                   <span className="max-w-measure flex-1 text-step-0 text-fg group-hover:text-accent">

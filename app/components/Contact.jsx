@@ -31,10 +31,12 @@ export default function Contact() {
             <li>
               <a
                 href={`mailto:${email}`}
-                className="flex flex-col gap-0.5 py-4 sm:flex-row sm:items-baseline sm:gap-6"
+                className="group flex flex-col gap-0.5 py-4 sm:flex-row sm:items-baseline sm:gap-6"
               >
                 <span className="mono shrink-0 text-muted sm:w-28">Email</span>
-                <span className="text-step-1 text-fg">{email}</span>
+                <span className="text-step-1 text-fg transition-colors group-hover:text-accent">
+                  {email}
+                </span>
               </a>
             </li>
             {channels.map((c) => (
@@ -43,12 +45,14 @@ export default function Contact() {
                   href={social[c.key]}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col gap-0.5 py-4 sm:flex-row sm:items-baseline sm:gap-6"
+                  className="group flex flex-col gap-0.5 py-4 sm:flex-row sm:items-baseline sm:gap-6"
                 >
                   <span className="mono shrink-0 text-muted sm:w-28">
                     {c.label}
                   </span>
-                  <span className="text-step-1 text-fg">{c.handle}</span>
+                  <span className="text-step-1 text-fg transition-colors group-hover:text-accent">
+                    {c.handle}
+                  </span>
                 </a>
               </li>
             ))}
@@ -63,7 +67,7 @@ export default function Contact() {
               {availability.overlap.map((line) => (
                 <li
                   key={line}
-                  className="border-l border-line pl-4 text-step-0 text-fg"
+                  className="border-l border-line-strong pl-4 text-step-0 text-fg"
                 >
                   {line}
                 </li>

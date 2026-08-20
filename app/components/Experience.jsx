@@ -41,7 +41,7 @@ export default function Experience() {
                   {job.bullets.map((b) => (
                     <li
                       key={b}
-                      className="max-w-measure border-l border-line pl-4 text-step-0 text-fg"
+                      className="max-w-measure border-l border-line-strong pl-4 text-step-0 text-fg"
                     >
                       {b}
                     </li>

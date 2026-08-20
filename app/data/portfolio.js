@@ -11,11 +11,12 @@ export const personalInfo = {
   // One canonical title, used everywhere on this site. "AI Software Developer"
   // survives only as the literal job-title field of the current employment row.
   title: "Full-Stack Developer (Backend-Leaning)",
+  // One sentence. It was two, and the second one — good as it is — pushed the
+  // proof strip off the first screen at 375px. It opens the work section now.
   lead:
     "I build APIs, data pipelines and LLM-backed features where the answer is " +
     "fenced to something that was actually retrieved — so the feature " +
-    "reports a gap instead of inventing a figure. Most of what I fix is the " +
-    "class of bug that returns a plausible wrong answer instead of an error.",
+    "reports a gap instead of inventing a figure.",
   email: "vipinc.sao@gmail.com",
   resumeUrl:
     "https://drive.google.com/file/d/1LoRU1KJxUrnphECCxJfo_2cnmJ9jniA2/view",

@@ -23,10 +23,12 @@ export default function Work() {
       title="Four projects, and what each one is measured at."
     >
       <p className="-mt-6 mb-14 max-w-measure text-step-0 text-muted">
-        Every number below comes out of a command in the repository it belongs
-        to. Two of these have no demo link on purpose: the deployments that
-        used to be linked run the builds these rewrites replaced, and pointing
-        a reader at those would be worse than pointing them at nothing.
+        Most of what I fix is the class of bug that returns a plausible wrong
+        answer instead of an error, so every number below comes out of a
+        command in the repository it belongs to. Two of these have no demo
+        link on purpose: the deployments that used to be linked run the builds
+        these rewrites replaced, and pointing a reader at those would be worse
+        than pointing them at nothing.
       </p>
 
       <div className="space-y-20 sm:space-y-28">
@@ -73,7 +75,7 @@ function CaseStudy({ project: p }) {
                 {p.measured.map((m) => (
                   <li
                     key={m}
-                    className="border-l border-line pl-4 text-step-0 text-fg"
+                    className="border-l border-line-strong pl-4 text-step-0 text-fg"
                   >
                     {m}
                   </li>
@@ -87,12 +89,14 @@ function CaseStudy({ project: p }) {
 
         <p className="mono mt-8 text-muted">{p.stack.join(" · ")}</p>
 
-        <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2">
+        {/* py-1/-my-1 rather than a bigger font: these came out 23px tall,
+            one pixel under WCAG 2.5.8's 24px target minimum. */}
+        <div className="mt-5 flex flex-wrap gap-x-6 gap-y-1">
           <a
             href={p.repo}
             target="_blank"
             rel="noopener noreferrer"
-            className="link text-step--1"
+            className="link -my-1 inline-block py-1 text-step--1"
           >
             Source
             <ArrowUpRight size={13} aria-hidden="true" className="ml-1 inline -translate-y-px" />
@@ -102,7 +106,7 @@ function CaseStudy({ project: p }) {
               href={p.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="link text-step--1"
+              className="link -my-1 inline-block py-1 text-step--1"
             >
               Live
               <ArrowUpRight size={13} aria-hidden="true" className="ml-1 inline -translate-y-px" />

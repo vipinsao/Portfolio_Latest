@@ -16,8 +16,8 @@ export default function Hero() {
 
   return (
     <section id="top" aria-labelledby="hero-heading">
-      <div className="mx-auto max-w-shell px-5 pb-16 pt-28 sm:px-8 sm:pb-24 sm:pt-36">
-        <p className="mono uppercase tracking-[0.14em] text-muted">
+      <div className="mx-auto max-w-shell px-5 pb-16 pt-24 sm:px-8 sm:pb-24 sm:pt-36">
+        <p className="mono uppercase tracking-[0.08em] text-muted sm:tracking-[0.14em]">
           {title} · Remote, UTC+5:30
         </p>
 
@@ -28,13 +28,13 @@ export default function Hero() {
           {name}
         </h1>
 
-        <p className="mt-5 max-w-measure text-step-1 leading-relaxed text-muted">
+        <p className="mt-5 max-w-measure text-step-1 text-muted">
           {lead}
         </p>
 
         {/* The proof strip. Two rows, both links, both checkable in one
             click. This is the whole reason the hero exists. */}
-        <ul className="mt-9 max-w-measure divide-y divide-line border-y border-line">
+        <ul className="mt-8 max-w-measure divide-y divide-line border-y border-line">
           {proof.map((p) => (
             <li key={p.label}>
               <a
