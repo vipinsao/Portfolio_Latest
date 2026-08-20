@@ -64,12 +64,23 @@ export default function ModalComponent() {
               {data.solution && (
                 <Section title="Solution" content={data.solution} />
               )}
-              {data.myApproach && (
-                <Section title="My Approach" content={data.myApproach} />
+              {(data.myApproach || data.approach) && (
+                <Section
+                  title="My Approach"
+                  content={data.myApproach || data.approach}
+                />
               )}
 
               {data.techStack?.length > 0 && (
                 <ListSection title="Tech Stack" items={data.techStack} small />
+              )}
+
+              {data.impact?.length > 0 && (
+                <ListSection title="Measured" items={data.impact} />
+              )}
+
+              {data.features?.length > 0 && (
+                <ListSection title="Features" items={data.features} />
               )}
 
               {data.results && (

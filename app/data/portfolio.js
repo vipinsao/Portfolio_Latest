@@ -252,6 +252,43 @@ export const projectsDetail = [
     forks: 0,
     tags: ["Media", "Optimization", "Cloud"],
   },
+  {
+    id: 5,
+    title: "Auth Service",
+    category: "backend",
+    description:
+      "A standalone authentication service in TypeScript: registration and login, RS256 access tokens, rotating refresh tokens with reuse detection, password reset, email verification and role-based access control, backed by PostgreSQL.",
+    problem:
+      "Most portfolio auth is a login form over a users table. The parts that actually decide whether a session is safe \u2014 what happens when a refresh token is replayed, whether login answers faster for an address that does not exist, whether the rate limiter can be bought a fresh budget by setting a header \u2014 are the parts usually skipped.",
+    solution:
+      "A refresh token carries the id of its own row; rows issued from one login share a family id. Refreshing burns the presented row and issues its successor. If an already-rotated token is presented again the service cannot tell theft from replay, so it revokes the whole family and forces a fresh login \u2014 while leaving a different session of the same user untouched.",
+    myApproach:
+      "Layered on purpose: server.ts opens the connection, app.ts builds the Express application and nothing else (which is what lets the integration tests drive it with supertest without binding a port), container.ts is the composition root, controllers hold only orchestration and the work lives in services. Every failure is an http-errors object rendered by one error handler, so the error envelope is identical across the API.",
+    challenges: [
+      "The schema had no migrations at all \u2014 it was built by TypeORM\u2019s synchronize, which is not something you run against a production database",
+      "The rate limiter keyed on X-Forwarded-For with trust proxy set and no proxy in front of it, so anyone who could set a header could buy a fresh budget",
+      "Login answered faster for an unknown address than for a real one, which is an account enumeration oracle",
+      "The documented setup path did not work: .env.example lists optional variables as empty strings, and ?? does not treat \"\" as absent, so a fresh clone handed expiresIn: \"\" to jsonwebtoken and 500\u2019d every login",
+    ],
+    techStack: [
+      "TypeScript",
+      "Express 5",
+      "PostgreSQL",
+      "TypeORM",
+      "JWT (RS256 + HS256)",
+      "Jest",
+      "Supertest",
+      "Docker",
+    ],
+    impact: [
+      "86 tests, mostly integration through supertest \u2014 and the repository brings its own PostgreSQL via embedded-postgres, so there is no Docker, no system package and no account between a clone and a green suite",
+      "Rotation, reuse detection revoking a family while a sibling session survives, the login timing oracle staying closed, the lockout schedule and RBAC are each covered by a test rather than asserted in a README",
+      "CI runs lint, format, typecheck, build and the suite against a postgres service container",
+      "What has not been executed is listed at the bottom of the README rather than left to be discovered",
+    ],
+    githubLink: "https://github.com/vipinsao/mern-auth-service",
+    tags: ["TypeScript", "Auth", "PostgreSQL"],
+  },
 ];
 
 export const workflows = [

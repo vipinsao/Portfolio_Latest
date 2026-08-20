@@ -23,14 +23,28 @@ export default function Projects() {
               onClick={() => openModal("project", project)}
               className="group w-full text-left rounded-2xl border border-gray-200 dark:border-gray-800 p-5 hover:shadow-xl hover:border-gray-300 dark:hover:border-gray-700 hover:-translate-y-1 transition-all duration-300 bg-white dark:bg-[#0e0e0e]"
             >
-              {/* IMAGE */}
+              {/* IMAGE — a backend service has no screenshot, so the tile
+                  falls back to its tech stack rather than a broken <Image>. */}
               <div className="relative w-full h-52 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-5">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-all duration-300 group-hover:scale-[1.05]"
-                />
+                {project.image ? (
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-all duration-300 group-hover:scale-[1.05]"
+                  />
+                ) : (
+                  <div className="w-full h-full flex flex-wrap items-center justify-center gap-2 px-6 bg-neutral-50 dark:bg-neutral-900">
+                    {project.techStack?.slice(0, 5).map((t) => (
+                      <span
+                        key={t}
+                        className="px-2.5 py-1 text-xs font-mono border border-neutral-300 dark:border-neutral-700 rounded text-neutral-600 dark:text-neutral-300"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* TITLE */}
