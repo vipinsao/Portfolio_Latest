@@ -220,37 +220,39 @@ export const projectsDetail = [
   },
   {
     id: 4,
-    title: "Social Share Optimizer",
+    title: "Social Share",
     category: "fullstack",
     description:
-      "A utility web app that prepares media assets (videos + images) into platform-ready formats for faster social media publishing.",
+      "Upload an image once and get back the crop every social platform wants \u2014 processed locally with sharp, owner-scoped on disk, quota-capped. Video takes the other route and goes to Cloudinary for compression.",
     problem:
-      "Every social platform uses different dimension standards and compression rules. Manually converting media every time is slow and inconsistent.",
+      "Every platform uses different dimension standards, and manually re-cropping in an editor each time is slow and inconsistent. The first build had a worse problem than that: every account was handed every other account\u2019s Cloudinary publicId, because the video query was unscoped and uploads used the public delivery type.",
     solution:
-      "Upload once → select platform preset → download optimized output. Helps creators get platform-specific media export faster without manually resizing in editors.",
-    approach:
-      "Used Cloudinary’s transformation pipeline for resizing and compression presets, and built a simple guided export UI where user selects platform target before sharing.",
+      "Upload once, pick a platform preset, download the output. Images are decoded, auto-rotated, EXIF-stripped and re-encoded to WebP by sharp, then stored under storage/uploads/<userId>/<id>.webp so a later read is scoped to the caller by the path itself, and re-cropped on demand with fit: cover and attention gravity.",
+    myApproach:
+      "Moving images off a hosted media API onto local sharp is what made the exact output dimensions testable at all \u2014 the suite asserts them rather than trusting a URL parameter. Clerk runs in middleware and again inside every route handler, so protection does not depend on the matcher alone, and every Prisma query is filtered by userId.",
     challenges: [
-      "Balancing quality vs file size",
-      "Mapping standard aspect ratios of platforms",
-      "Handling both video + image formats consistently",
+      "The image format was decided from the Content-Type the client typed, so 119 bytes of SVG declaring image/png passed every check and cost 4,967ms of CPU in sharp",
+      "Request bodies were measured after being buffered, so 250MB offered was parsed in full at about 1GB RSS",
+      "The first orphan reaper had its two sides backwards \u2014 a missing storage directory made every row look like an orphan, and it would have deleted the lot",
     ],
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Cloudinary"],
-    features: [
-      "Platform preset selection",
-      "Video compression export",
-      "Image ratio auto adjustment",
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "sharp",
+      "Clerk",
+      "Cloudinary (video only)",
     ],
-    results:
-      "Improved my understanding of media pipelines and cross-platform formatting standards.",
-    lessonsLearned:
-      "A simplified preset-driven UX reduces friction more than trying to automate publishing completely.",
+    impact: [
+      "179 tests in about five seconds with no keys, no accounts, no database and no network \u2014 the sharp pipeline\u2019s exact output dimensions, path traversal rejected on read and on delete, the quota\u2019s boundary byte, and the orphan reaper in both directions",
+      "Upload path is rate-limited per user, MIME-allowlisted, 10MB-capped and quota-checked, and writes the file before the row so a failed insert unlinks rather than orphans",
+      "Delete reverses the order \u2014 row first, then file \u2014 so a deleted image stops being served the moment its row is gone",
+    ],
     liveLink: "https://ai-saas-webapp.vercel.app/",
-    githubLink: "https://github.com/vipinsao/AI-Saas-Webapp",
+    githubLink: "https://github.com/vipinsao/ai-saas-webapp",
     image: "/images/social-share.png",
-    stars: 0,
-    forks: 0,
-    tags: ["Media", "Optimization", "Cloud"],
+    tags: ["Media", "TypeScript", "Storage"],
   },
   {
     id: 5,
