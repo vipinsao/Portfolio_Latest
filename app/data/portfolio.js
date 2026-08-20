@@ -384,8 +384,8 @@ export const blogs = [
     title:
       "JavaScript vs TypeScript: Why Everyone's Shifting to TypeScript in 2025",
     platform: "Dev.to",
-    date: "October 2024",
-    readTime: "8 min read",
+    date: "July 2025",
+    readTime: "2 min read",
     description:
       "Exploring the practical differences between JavaScript and TypeScript, when to use each, and migration strategies for existing projects.",
     summary:
@@ -399,7 +399,6 @@ export const blogs = [
       "My First AI Workflow: Building My Personal Automation Assistant with n8n",
     platform: "Medium",
     date: "September 2025",
-    readTime: "10 min read",
     description:
       "This article explains how I built my very first AI workflow using n8n to automate repetitive personal tasks and turn them into a self-running assistant.",
     summary:
@@ -414,7 +413,6 @@ export const blogs = [
       "The Ultimate Job Application Automation: From Zero to Hero with AI-Powered Resume Matching",
     platform: "Medium",
     date: "October 2025",
-    readTime: "12 min read",
     description:
       "A deep breakdown of how I automated the job search pipeline using AI, automation workflows, and scoring logic that matches roles against resume keywords.",
     summary:
