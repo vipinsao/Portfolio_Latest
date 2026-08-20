@@ -6,13 +6,11 @@ export const personalInfo = {
   bio: "Full-Stack Developer building production-ready web applications with practical GenAI integrations. I focus on clean engineering, reliable systems, and solving real user problems—not AI wrappers. Currently building and deploying full-stack AI-powered products and automation workflows.",
   location: "Raipur, India",
   email: "vipinc.sao@gmail.com",
-  resumeUrl: "/resume.pdf", // keep this, but make sure resume.pdf exists in /public
   social: {
     github: "https://github.com/vipinsao",
     linkedin: "https://www.linkedin.com/in/vipinsao",
     twitter: "https://twitter.com/vipinSao1",
     leetcode: "https://leetcode.com/u/vipinsao/",
-    portfolio: "https://vipinsao.tech",
   },
 };
 
@@ -176,28 +174,28 @@ export const projectsDetail = [
     title: "TypingWeb - Speed Test Trainer",
     category: "fullstack",
     description:
-      "Gamified typing trainer with real-time WPM tracking, leaderboard & progress analytics.",
+      "Typing trainer with three difficulty levels, an on-screen keyboard, and WPM + accuracy scoring.",
     problem:
       "Typing tools are boring and don’t motivate consistent improvement.",
     solution:
-      "Built modern interactive typing trainer with instant feedback + streak based gamification.",
+      "Built an interactive typing trainer that renders a live keyboard, highlights each key as you type, and reports WPM and accuracy at the end of every run.",
     approach:
-      "Optimized rendering with memoization & debouncing and used Firebase for realtime sync.",
+      "Used Firebase Authentication for accounts plus a guest path that skips sign-up entirely, and kept the prompt set in a static JSON file so a practice run needs no database round-trip.",
     challenges: [
-      "Optimizing mobile typing responsiveness",
-      "Preventing leaderboard spam",
-      "Improving retention with streak gamification",
+      "Tracking keydown/keyup state to drive the on-screen keyboard",
+      "Computing WPM and accuracy consistently across difficulty levels",
+      "Keeping the app fully usable without an account",
     ],
-    techStack: ["Next.js", "TypeScript", "Firebase", "Tailwind", "Vercel"],
+    techStack: ["Next.js", "TypeScript", "Firebase Auth", "Tailwind", "Vercel"],
     impact: [
-      "40WPM → 75WPM personal improvement",
-      "15+ active weekly testers",
-      "High engagement using streak features",
+      "Deployed and publicly usable at typingweb-two.vercel.app",
+      "Three difficulty levels driven by a static prompt set",
+      "Email/password auth with a no-signup guest mode",
     ],
     liveLink: "https://typingweb-two.vercel.app/",
     githubLink: "https://github.com/vipinsao/typingweb",
     image: "/images/typing.png",
-    tags: ["Productivity", "Gamification", "Firebase"],
+    tags: ["Productivity", "Frontend", "Firebase"],
   },
   {
     id: 4,
@@ -226,7 +224,6 @@ export const projectsDetail = [
       "Improved my understanding of media pipelines and cross-platform formatting standards.",
     lessonsLearned:
       "A simplified preset-driven UX reduces friction more than trying to automate publishing completely.",
-    // Live should go to the deployed app, code to the repo
     liveLink: "https://ai-saas-webapp.vercel.app/",
     githubLink: "https://github.com/vipinsao/AI-Saas-Webapp",
     image: "/images/social-share.png",
@@ -267,7 +264,7 @@ export const workflows = [
     lessonsLearned:
       "Automation + AI summarization removes noise and keeps focus only on high value updates.",
     image: "/images/workflow-1.png",
-    link: "https://github.com/vipinsao/workflows/blob/master/JobOpportunityMultiModelAutomation.md", // consider adding a GitHub repo link separately in UI
+    link: "https://github.com/vipinsao/workflows/blob/master/JobOpportunityMultiModelAutomation.md",
     tags: ["Automation", "n8n", "AI", "Productivity", "Monitoring"],
   },
   {
@@ -301,7 +298,6 @@ export const workflows = [
     lessonsLearned:
       "A simple weighted keyword score filters noise effectively; add headless browsing only when pages render dynamically.",
     image: "/images/workflow-2.png",
-    // TODO: point this to a specific repo or documentation page when ready
     link: "https://github.com/vipinsao/workflows/blob/master/LinkedJobAutomation.md",
     tags: ["Automation", "n8n", "Jobs", "Telegram", "Scraping"],
   },
@@ -356,7 +352,6 @@ export const blogs = [
   },
 ];
 
-// New: you can build an Education section from this later
 export const education = [
   {
     degree: "B.Tech in Computer Science & Engineering",
