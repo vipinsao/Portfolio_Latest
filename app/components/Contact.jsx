@@ -38,7 +38,9 @@ export default function Contact() {
         </p>
 
         <a
-          href={`https://www.linkedin.com/in/vipinsao/`}
+          href={personalInfo.social.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
           className="px-6 py-3 rounded-md bg-black dark:bg-white text-white dark:text-black font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition"
         >
           Contact Me
@@ -50,7 +52,7 @@ export default function Contact() {
               key={key}
               href={personalInfo.social[key]}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition"
             >
               {socialLabels[key] ?? key}

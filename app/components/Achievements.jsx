@@ -1,6 +1,6 @@
 "use client";
 import { achievements } from "../data/portfolio";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export default function Achievements() {
   return (
@@ -39,6 +39,7 @@ export default function Achievements() {
                 <a
                   href={ach.link}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="text-blue-700 dark:text-blue-400 mt-3 text-sm underline hover:text-blue-600 dark:hover:text-blue-300 transition"
                 >
                   verify →

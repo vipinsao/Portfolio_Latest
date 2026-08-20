@@ -1,6 +1,6 @@
 "use client";
 import { experience } from "../data/portfolio";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export default function Experience() {
   return (

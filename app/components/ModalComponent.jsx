@@ -120,6 +120,7 @@ export default function ModalComponent() {
             {data.liveLink && (
               <a
                 target="_blank"
+                rel="noopener noreferrer"
                 href={data.liveLink}
                 className="px-4 py-2 border border-neutral-300 dark:border-neutral-700 rounded-md text-sm hover:bg-neutral-50 dark:hover:bg-neutral-900 transition"
               >
@@ -129,6 +130,7 @@ export default function ModalComponent() {
             {data.githubLink && (
               <a
                 target="_blank"
+                rel="noopener noreferrer"
                 href={data.githubLink}
                 className="px-4 py-2 border border-neutral-300 dark:border-neutral-700 rounded-md text-sm hover:bg-neutral-50 dark:hover:bg-neutral-900 transition"
               >
@@ -138,6 +140,7 @@ export default function ModalComponent() {
             {data.link && (
               <a
                 target="_blank"
+                rel="noopener noreferrer"
                 href={data.link}
                 className="px-4 py-2 border border-neutral-300 dark:border-neutral-700 rounded-md text-sm hover:bg-neutral-50 dark:hover:bg-neutral-900 transition"
               >
