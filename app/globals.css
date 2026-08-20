@@ -125,6 +125,20 @@
 }
 
 @layer components {
+  /* The scroll reveal, driven by a data attribute Reveal.jsx sets. Note the
+     default is *shown*: an element only becomes hidden once JavaScript has
+     decided it is below the fold, so a prerendered page with no working JS
+     is a fully readable page. */
+  [data-reveal] {
+    transition: opacity 450ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 450ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  [data-reveal="hidden"] {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
   /* Numbers, stacks and identifiers are set in mono so a reader's eye can
      find them without a colour or a badge doing the work. The stack is
      system mono on purpose: a third webfont download to letter-space
