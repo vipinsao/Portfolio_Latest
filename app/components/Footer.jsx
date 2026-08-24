@@ -21,11 +21,14 @@ export default function Footer() {
         <p>© {year} Vipin Chandra Sao</p>
         <p>
           Next.js, Tailwind, and one animation. Source on{" "}
+          {/* inline-block + py-1 lifts the tap target to 25px (it measured
+              44x17 on a phone, under the 24px minimum); -my-1 keeps the line
+              box exactly where it was. */}
           <a
             href="https://github.com/vipinsao/Portfolio_Latest"
             target="_blank"
             rel="noopener noreferrer"
-            className="link"
+            className="link inline-block py-1 -my-1"
           >
             GitHub
           </a>

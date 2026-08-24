@@ -65,10 +65,16 @@ export const metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/user-vipin.png",
-        width: 360,
-        height: 360,
-        alt: "Vipin Chandra Sao",
+        // 1200x630 is the size a "large summary" card is composed for. The
+        // previous entry pointed at the headshot: a 2048x2048 square, 754 kB,
+        // and actually a JPEG despite the .png name. Declared here as 360x360,
+        // it was centre-cropped hard into a 1.91:1 frame by every scraper, and
+        // dropped entirely by the ones that cap preview images near 300 kB.
+        url: "/og-card.png",
+        width: 1200,
+        height: 630,
+        type: "image/png",
+        alt: "Vipin Chandra Sao — backend-leaning full-stack engineer",
       },
     ],
   },
@@ -77,7 +83,7 @@ export const metadata = {
     title,
     description,
     creator: "@vipinSao1",
-    images: ["/user-vipin.png"],
+    images: ["/og-card.png"],
   },
   robots: {
     index: true,
