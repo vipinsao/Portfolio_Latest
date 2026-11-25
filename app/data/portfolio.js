@@ -52,7 +52,7 @@ export const personalInfo = {
 export const proof = [
   {
     label: "PR #12605",
-    text: "Merged into kestra — 27.9k★ workflow engine, November 2025.",
+    text: "Merged into kestra — 30k+★ workflow engine, November 2025.",
     href: "https://github.com/kestra-io/kestra/pull/12605",
   },
   {
@@ -64,7 +64,7 @@ export const proof = [
 ];
 
 /**
- * Four case studies, ordered by how much of the work is measurable.
+ * Four case studies, in the same order as the résumé.
  *
  * `headline` is the single number a reader gets if they read nothing else.
  * `change` is the project's own documented limitation, quoted from its README
@@ -73,8 +73,41 @@ export const proof = [
  */
 export const caseStudies = [
   {
-    id: "smart-ingredient-analyzer",
+    id: "campaign-engine",
     index: "01",
+    title: "Campaign Engine",
+    summary:
+      "A multi-channel email and SMS campaign engine that records why it sent a message — and why it didn’t. On the live demo you can place an order in a test shop and watch the engine enrol you, run its send-time checks and send the confirmation as a real email.",
+    headline: { value: "610", unit: "tests in CI", note: "unit, integration and the invariant suite" },
+    problem:
+      "Messaging systems tend to fail quietly: a guard that exists on one of four send paths, a “delivered” status inferred from “sent”, a queued email that still goes out after the customer said stop. This is a personal project, written from scratch — the shape of it comes from debugging a production notification service at work, but it shares no code with it.",
+    built:
+      "A PostgreSQL queue where claiming a message is exactly-once (SELECT … FOR UPDATE SKIP LOCKED, with every final write fenced on the claim) and duplicate sends are blocked by a UNIQUE index rather than a check-then-insert. Consent, suppression, quiet hours in the recipient’s own timezone and frequency caps are all checked at send time, and every skip writes a decision row with a reason code. The AI reply triage is handed a narrowed capability object, so the model can only ever add a suppression, never remove one; prompts are versioned and a golden eval set blocks a merge on regression.",
+    measured: [
+      "610 tests in CI — 328 unit, 136 integration and 146 in the invariant suite. Until November 2026 CI could not actually fail: a test-database exit hook was turning every failed run green. That is fixed",
+      "14 named delivery invariants and 10 AI invariants, each with its own tests",
+      "A review where every finding had to be proven with a failing test confirmed six bugs, four of them inside the guards themselves — all fixed and written up",
+      "On the live demo, an order’s confirmation is sent as a real email through Brevo; the operator console opens without a login and masks other visitors’ emails and phone numbers",
+    ],
+    change:
+      "Delivery is at-least-once, not exactly-once: if a worker dies mid-send, the message can go out twice — an earlier README over-claimed this and was corrected. The AI eval replays recorded model outputs, so no live-model accuracy is claimed. SMS is not configured on the demo, so no text is sent (the shop says so), and the email comes from a free sending plan, so it can land in spam.",
+    stack: [
+      "TypeScript",
+      "Node.js",
+      "Hono",
+      "PostgreSQL",
+      "React",
+      "Claude API",
+      "Brevo",
+      "Docker",
+    ],
+    repo: "https://github.com/vipinsao/Campaign_project",
+    demo: "https://campaign-project-ke4v.onrender.com/shop",
+    image: "/images/campaign-engine.png",
+  },
+  {
+    id: "smart-ingredient-analyzer",
+    index: "02",
     title: "Smart Ingredient Analyzer",
     summary:
       "Photograph a food label: OCR reads it, hybrid retrieval looks each ingredient up in a committed Open Food Facts corpus, and every verdict has to cite the passage it came from — or the ingredient is reported as uncovered.",
@@ -87,8 +120,8 @@ export const caseStudies = [
       "recall@5 of 95% over 58 hand-labelled questions — `npm run eval`, six seconds, no API key and no network",
       "Abstention precision 100% (0 of 40 answerable questions wrongly refused); recall 72% (13 of 18 out-of-corpus questions refused)",
       "The ablation is published including the result it did not want: hybrid matches BM25 alone at 83/95/95% for recall@1/@3/@5, and dense-only manages 48/73/78%",
-      "OCR pre-processing raises Tesseract’s own confidence from 57 to 67 on the committed sample label — one image on one machine, not a benchmark",
-      "86 unit tests, and CI fails the build if hybrid recall@5 drops below 85%",
+      "OCR pre-processing raises Tesseract’s own confidence from 54 to 65 on the committed sample label — one image on one machine, not a benchmark",
+      "113 unit tests, and CI fails the build if hybrid recall@5 drops below 85%",
     ],
     change:
       "Citation validity, groundedness and post-generation abstention are unit-tested against a stubbed model but have never been measured against a live one, because no API key was available. And retrieval precision on generic words is still wrong — `sugar` reaches the sweetener passage instead of abstaining. The README says both, and the second is unfixed.",
@@ -110,41 +143,41 @@ export const caseStudies = [
     image: "/images/smart-ingredient.png",
   },
   {
-    id: "ai-interview-platform",
-    index: "02",
-    title: "AI Interview Platform",
+    id: "auth-service",
+    index: "03",
+    title: "Auth Service",
     summary:
-      "A recruiter generates a role-specific interview and shares a link; the candidate answers out loud in the browser, each answer is scored server-side as it is given, and the scores are collected into a report.",
-    headline: { value: "76.8 → 13.5 kB", unit: "first-load JS", note: "on the interview route" },
+      "A standalone authentication service in TypeScript: RS256 access tokens, rotating refresh tokens with reuse detection, password reset, email verification and role-based access control, backed by PostgreSQL.",
+    headline: { value: "93", unit: "tests", note: "against a PostgreSQL the repo starts itself" },
     problem:
-      "The first build let the candidate decide their own result. The report was assembled from what the browser posted at the end rather than from anything the server had recorded, so a candidate could set their own score — and a recruiter could grant themselves credits, because row level security decides whose row you may write, not which columns.",
+      "Most portfolio auth is a login form over a users table. The parts that actually decide whether a session is safe — what happens when a refresh token is replayed, whether login answers faster for an address that does not exist, whether the rate limiter can be handed a fresh budget by setting a header — are the parts usually skipped.",
     built:
-      "Each answer is posted as a question index plus a transcript; the route reads the question from the stored list, scores it 0–10 against explicit criteria and writes that score as it issues it. The final report takes scores from those rows, computes the rating breakdown arithmetically, and asks the model only for the prose summary. Nothing the browser holds at the end decides what the report says. The hosted voice-agent SDK came out in favour of the browser-native Web Speech API, and every branch of a live session — no recognition in this browser, microphone blocked, candidate silent, scoring endpoint down — is a transition in a pure reducer, so there is no state that shows a spinner with no way forward.",
+      "A refresh token carries the id of its own row, and rows issued from one login share a family id. Refreshing burns the presented row and issues its successor. If an already-rotated token is presented again the service cannot tell theft from replay, so it revokes the whole family and forces a fresh login — while leaving a different session of the same user untouched. The layering is deliberate: `app.ts` builds the Express application and nothing else, which is what lets the integration tests drive it with supertest without binding a port.",
     measured: [
-      "Dropping the paid voice SDK for the Web Speech API took the interview route’s first-load JavaScript from 76.8 kB to 13.5 kB, and no vendor key ships to the client — measured from `next build` before and after",
-      "85 tests run with no keys, no card and no network; 109 when given a real PostgreSQL",
-      "49 read-only checks assert the live database catalogue matches the committed schema",
-      "A read-only report link is a UUIDv4 looked up by equality on a unique index, never listed, expiring after fourteen days and revocable before then",
+      "93 tests, mostly integration through supertest — and the repository brings its own PostgreSQL via `embedded-postgres`, so there is no Docker, no system package and no account between a clone and a green suite",
+      "The rate-limiter bypass was proven before it was fixed: 60 logins with unique forged `X-Forwarded-For` headers returned 40 × 429 unset, and 0 × 429 with trust-proxy misconfigured",
+      "19 advisories (1 critical, 10 high, 6 moderate, 2 low) taken to `found 0 vulnerabilities`, at a cost of 52 transitive packages moved in one step",
+      "Rotation, reuse detection revoking a family while a sibling session survives, the login timing oracle staying closed, the lockout schedule and RBAC are each covered by a test rather than asserted in a README",
     ],
     change:
-      "The score is a language model’s judgement, not a measurement — the same answer can score differently on different runs, and there is no accuracy figure because none has been measured. Nor has an order ever been captured against a live PayPal sandbox: the logic is tested, the integration is not.",
+      "Docker Compose and the CI workflow have not been executed as such — Docker was not available where this was built, so the image build and healthcheck ordering are unexercised. And the progressive lockout trades a hard-to-exploit credential attack for an easy-to-exploit availability one: an attacker willing to keep sending traffic can hold an account at the 15-minute cap. Both are at the bottom of the README rather than left to be discovered.",
     stack: [
-      "Next.js",
-      "Supabase (Postgres + RLS)",
-      "Web Speech API",
-      "Groq",
-      "Zod",
-      "PayPal",
+      "TypeScript",
+      "Express 5",
+      "PostgreSQL",
+      "TypeORM",
+      "JWT (RS256)",
+      "Jest",
+      "Supertest",
+      "Docker",
     ],
-    repo: "https://github.com/vipinsao/ai-interview-platform",
-    // The deployed build predates the rewrite above and its question
-    // generation is broken, so it is not linked.
+    repo: "https://github.com/vipinsao/mern-auth-service",
     demo: null,
-    image: "/images/ai-interview.png",
+    image: null,
   },
   {
     id: "social-share",
-    index: "03",
+    index: "04",
     title: "Social Share",
     summary:
       "Upload an image once and get back the crop every social platform wants — processed locally with sharp, owner-scoped on disk, quota-capped.",
@@ -174,54 +207,23 @@ export const caseStudies = [
     demo: "https://ai-saas-webapp.vercel.app/",
     image: "/images/social-share.png",
   },
-  {
-    id: "auth-service",
-    index: "04",
-    title: "Auth Service",
-    summary:
-      "A standalone authentication service in TypeScript: RS256 access tokens, rotating refresh tokens with reuse detection, password reset, email verification and role-based access control, backed by PostgreSQL.",
-    headline: { value: "86", unit: "tests", note: "against a PostgreSQL the repo starts itself" },
-    problem:
-      "Most portfolio auth is a login form over a users table. The parts that actually decide whether a session is safe — what happens when a refresh token is replayed, whether login answers faster for an address that does not exist, whether the rate limiter can be handed a fresh budget by setting a header — are the parts usually skipped.",
-    built:
-      "A refresh token carries the id of its own row, and rows issued from one login share a family id. Refreshing burns the presented row and issues its successor. If an already-rotated token is presented again the service cannot tell theft from replay, so it revokes the whole family and forces a fresh login — while leaving a different session of the same user untouched. The layering is deliberate: `app.ts` builds the Express application and nothing else, which is what lets the integration tests drive it with supertest without binding a port.",
-    measured: [
-      "86 tests, mostly integration through supertest — and the repository brings its own PostgreSQL via `embedded-postgres`, so there is no Docker, no system package and no account between a clone and a green suite",
-      "The rate-limiter bypass was proven before it was fixed: 60 logins with unique forged `X-Forwarded-For` headers returned 40 × 429 unset, and 0 × 429 with trust-proxy misconfigured",
-      "19 advisories (1 critical, 10 high, 6 moderate, 2 low) taken to `found 0 vulnerabilities`, at a cost of 52 transitive packages moved in one step",
-      "Rotation, reuse detection revoking a family while a sibling session survives, the login timing oracle staying closed, the lockout schedule and RBAC are each covered by a test rather than asserted in a README",
-    ],
-    change:
-      "Docker Compose and the CI workflow have not been executed as such — Docker was not available where this was built, so the image build and healthcheck ordering are unexercised. And the progressive lockout trades a hard-to-exploit credential attack for an easy-to-exploit availability one: an attacker willing to keep sending traffic can hold an account at the 15-minute cap. Both are at the bottom of the README rather than left to be discovered.",
-    stack: [
-      "TypeScript",
-      "Express 5",
-      "PostgreSQL",
-      "TypeORM",
-      "JWT (RS256)",
-      "Jest",
-      "Supertest",
-      "Docker",
-    ],
-    repo: "https://github.com/vipinsao/mern-auth-service",
-    demo: null,
-    image: null,
-  },
 ];
 
 export const experience = [
   {
-    id: "tailwind",
+    id: "crfr",
     role: "AI Software Developer",
-    company: "Tailwind Marketing",
-    context: "Internal multi-channel e-commerce operations platform",
+    company: "CR Fence & Rail",
+    context:
+      "In-house operations platform for a US e-commerce business selling on five marketplaces across the US and Canada",
     period: "Dec 2025 — Present",
     bullets: [
-      "Sole author of five production subsystems: marketplace API integrations, catalog data pipelines, an email/SMS notification service, and a fifteen-tab analytics frontend.",
-      "180 merged PRs and 149 SQL migrations, second of thirteen contributors — and roughly two `fix:` commits for every `feat:`, because the class of bug I am usually chasing returns a plausible wrong answer instead of an error.",
-      "Traced a dashboard that had been confidently wrong for months to a paginated query looping over ranged offsets with no ORDER BY. Pages overlapped, so after de-duplication the result was 11.4% short and the period-over-period trend read −8.2% where the truth was −14.9%. Fixed, then written up as a standing audit rule for every other ranged pagination loop in the codebase.",
-      "Built a Postgres-backed atomic budget governor — a usage table plus consume/remaining stored procedures — for a 5,000-request monthly vendor plan that an uncapped five-minute job was burning in about 48 hours. Routed all seven consumers through it, with per-consumer daily caps sized to survive a 32-day billing cycle.",
-      "Enforced a fail-closed gate at the single writer every automated live-listing write converges on, rather than patching each caller: it refuses on a missing or unreadable flag row, requires provenance, detects fan-out across all fields rather than media only, and treats an unfetchable schema as a refusal.",
+      "Sole author of five production subsystems, and of about 97% of the commits (171 of 176) to a fifteen-tab analytics dashboard. Between December 2025 and August 2026 that came to 2,000+ commits and 200+ SQL migrations of my own.",
+      "Shipped Claude API features where the model is never the last line of defence: Claude Haiku ranks price-matched competitors, with a deterministic fallback when it is unavailable; a weekly Claude vision pass flags listings whose images show the wrong product; and review analysis drops any number that does not appear in the source text.",
+      "Built pricing and Ads recommenders in which the model only proposes: hard floor, ceiling, margin and daily-change limits, a dry run, and a human approve-then-push step — 48 live pricing recommendations, 0 guardrail violations. After one automated listing write collapsed a product’s 9 images to 2, added a fail-closed gate on automated Amazon listing writes; it is unit-verified, but its revert path has not been rehearsed on a live listing.",
+      "Own order tracking and shipments: find, root-cause and fix production bugs, working with parallel Claude Code agents and an independent QA pass on each fix — 16 tracked bugs closed, including shipping labels bought against stock that did not exist and an order sync timing out on 110,926 rows.",
+      "Traced a dashboard that had been confidently wrong for months to a paginated query looping over ranged offsets with no ORDER BY. Pages overlapped, so after de-duplication the result was 11.4% short, revenue read 12.5% low, and the period-over-period trend read −8.2% where the truth was −14.9%. Fixed, then written up as a standing audit rule for every other ranged pagination loop in the codebase.",
+      "Proved two separate causes behind an SMS pipeline that had been failing about 97% of sends for four weeks — non-production workers claiming production queue rows, and a sender number never attached to the messaging service — and fixed both. Built a Postgres-backed atomic budget governor for a 5,000-request monthly vendor plan that one uncapped job was burning in about two days, and routed all seven consumers through it.",
     ],
   },
   {
@@ -231,7 +233,7 @@ export const experience = [
     context: null,
     period: "Jul 2023 — Dec 2025",
     bullets: [
-      "Built and deployed four full-stack applications end to end, then revisited every one of them in 2026 with either an evaluation harness or a test suite that runs from a fresh clone — the four case studies above.",
+      "Built and deployed full-stack applications end to end — Smart Ingredient Analyzer, Auth Service and Social Share among them — and went back to each in 2026 with an evaluation harness or a test suite that runs from a fresh clone.",
       "Two merged pull requests into open-source projects I do not maintain.",
       "Wrote three technical posts and published two documented n8n automation workflows.",
     ],
@@ -241,7 +243,7 @@ export const experience = [
 export const openSource = [
   {
     project: "kestra",
-    stars: "27.9k★",
+    stars: "30k+★",
     pr: "PR #12605",
     merged: "Merged November 2025",
     text:
@@ -291,7 +293,7 @@ export const writing = [
 ];
 
 export const education = {
-  degree: "B.Tech, Computer Science & Engineering",
+  degree: "B.Tech, Computer Science & Engineering (CGPA 8.32/10)",
   institution: "SSIPMT Raipur",
   period: "2019 — 2023",
 };

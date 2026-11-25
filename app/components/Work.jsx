@@ -13,7 +13,7 @@ import Reveal from "./Reveal";
  * was a click away from anyone skimming and invisible to anyone who never
  * clicked. It is on the page now.
  *
- * The order runs from the most measurable to the least.
+ * The order matches the résumé.
  */
 export default function Work() {
   return (
@@ -25,9 +25,9 @@ export default function Work() {
       <p className="-mt-6 mb-14 max-w-measure text-step-0 text-muted">
         Most of what I fix is the class of bug that returns a plausible wrong
         answer instead of an error, so every number below comes out of a
-        command in the repository it belongs to. Two of these have no demo
-        link on purpose: the deployments that used to be linked run the builds
-        these rewrites replaced, and pointing a reader at those would be worse
+        command in the repository it belongs to. Smart Ingredient Analyzer has
+        no demo link on purpose: the deployment that used to be linked runs the
+        build its rewrite replaced, and pointing a reader at that would be worse
         than pointing them at nothing.
       </p>
 

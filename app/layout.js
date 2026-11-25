@@ -33,8 +33,8 @@ const siteUrl = "https://portfolio-latest-y5jf.vercel.app";
 const title = "Vipin Chandra Sao — Full-Stack Developer (Backend-Leaning)";
 const description =
   "Full-stack developer, backend-leaning. Node.js, TypeScript, PostgreSQL and " +
-  "LLM-backed features — retrieval with citations, auth services, and " +
-  "marketplace data pipelines. Based in India (UTC+5:30), open to remote roles.";
+  "LLM-backed features — retrieval with citations, a campaign messaging " +
+  "engine, auth services and marketplace data pipelines. Based in India (UTC+5:30), open to remote roles.";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
